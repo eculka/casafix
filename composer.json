@@ -3,7 +3,7 @@
     "barrelstrength/sprout-forms": "3.5.1",
     "barrelstrength/sprout-lists": "2.0.1",
     "craftcms/ckeditor": "1.0.0-beta.2",
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "3.3.13",
     "nathanheffley/contact-form-drip": "1.0.0",
     "vlucas/phpdotenv": "^3.4.0"
   },

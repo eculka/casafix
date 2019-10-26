@@ -9,29 +9,25 @@
 
     {% include 'partials/navbar/index.html' %}
 
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    {{ page.generalContent }}
+                </div>
+            </div>
+        </div>
+    </section>
+
     {% set services = craft.entries()
         .section('services')
         .all() %}
 
-    <section class="prices py-5">
+    <section class="prices py-5 bg-light">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center">
                 {% for service in services %}
-                    <div class="col">
-                        {% include 'partials/price-card/index.html' with {
-                            service: service
-                        } %}
-                    </div>
-                {% endfor %}
-                {% for service in services %}
-                    <div class="col">
-                        {% include 'partials/price-card/index.html' with {
-                            service: service
-                        } %}
-                    </div>
-                {% endfor %}
-                {% for service in services %}
-                    <div class="col">
+                    <div class="col-12 col-sm-6 col-md-6 col-xl-4 mb-2">
                         {% include 'partials/price-card/index.html' with {
                             service: service
                         } %}
@@ -40,6 +36,10 @@
             </div>
         </div>
     </section>    
+
+    <section class="py-5">
+        {% include 'partials/cta/index.html' %}
+    </section>
 
 </main>
 

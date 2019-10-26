@@ -1,0 +1,22 @@
+{%- for tab in tabs -%}
+
+    {%- set layoutFields = tab.getFields() %}
+
+    <section class="tab">
+
+        {% if form.displaySectionTitles -%}
+            <h3>{{ tab.name|t }}</h3>
+        {%- endif %}
+
+        <div class="row">
+            {% for field in layoutFields -%}
+                {%- set required = field.required ? true : false %}
+                <div class="form-group col-12 {{required ? ' required'}}">
+                    {{- craft.sproutForms.displayField(form, field, renderingOptions) }}
+                </div>
+            {%- endfor %}
+        </div>
+
+    </section>
+
+{%- endfor -%}

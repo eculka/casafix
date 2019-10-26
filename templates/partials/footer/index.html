@@ -15,9 +15,11 @@
                     {% set services = craft.entries()
                         .section('services')
                         .all() %}
-                    {% for service in services %}
-                        <a class="text-white" href="{{ service.url }}">{{ service.title }}</a>
-                    {% endfor %}
+                        <ul class="navbar-nav">
+                            {% for service in services %}
+                                <li class="nav-link"><a class="text-white" href="{{ service.url }}">{{ service.title }}</a></li>
+                            {% endfor %}
+                        </ul>
                 </div>
                 <div class="col-12 d-block d-md-none">
                     <hr>
@@ -29,9 +31,12 @@
                     {% set services = craft.entries()
                         .section('services')
                         .all() %}
-                    {% for service in services %}
-                        <a class="text-white" href="{{ service.url }}">{{ service.title }}</a>
-                    {% endfor %}
+                        <ul class="navbar-nav">
+                            {% for service in services %}
+                                <li class="nav-link"><a class="text-white" href="{{ service.url }}">{{ service.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    
                 </div>
             </div>
         </div>
