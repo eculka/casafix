@@ -1,0 +1,19 @@
+{% extends "layout.html" %} {% set page = craft.entries.section('home')[0] %}
+{% block content %}
+<main>
+
+    {% include 'partials/navbar/index.html' %}
+    
+    {% set heroBackground = page.heroBackground.one() %}
+    {% include 'partials/hero/index.html' with {
+            heroBackground: heroBackground,
+            heroTitle: page.heroTitle
+        } 
+    %}
+
+    {% include 'partials/request-quote/index.html' %}
+
+    {% include 'partials/whys/index.html' %}
+
+</main>
+{% endblock %}

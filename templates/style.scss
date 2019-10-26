@@ -1,0 +1,57 @@
+@import 'styles/bootstrap-overrides';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import 'styles/responsiveness';
+
+@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "../node_modules/slick-carousel/slick/slick-theme.scss";
+
+@import "partials/navbar/style.scss";
+@import "partials/hero/style.scss";
+@import "partials/whys/style.scss";
+@import "partials/cta/style.scss";
+@import "partials/footer/style.scss";
+@import "partials/request-quote/style.scss";
+
+* strong {
+    font-weight: bold;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-weight: bold;   
+    display: flex;
+    justify-content: center; 
+}
+
+.input-group-prepend {
+    max-width: 14rem;
+
+    select{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.bg-warning {
+    background-color: #ffc10752!important;
+}
+
+.required {
+
+    label {
+
+        &:after {
+            content: ' *';
+            color: red;
+        }
+    }
+
+    .errors{
+
+        textarea, input {
+            border-color: red;
+        }
+
+    }
+}

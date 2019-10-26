@@ -1,0 +1,71 @@
+
+@include media-breakpoint-only(xs) {
+    html {
+        font-size: 13px;
+
+        footer{
+            font-size: 12px;
+        }
+    }
+    .btn {
+        width: 100%;
+        display: flex;
+    }
+}
+
+@include media-breakpoint-only(sm) {
+    html {
+        font-size: 15px;
+
+        footer{
+            font-size: 14px;
+        }
+    }
+}
+
+@include media-breakpoint-only(md) {
+    html {
+        font-size: 15px;
+
+        footer{
+            font-size: 14px;
+        }
+    }
+}
+
+@include media-breakpoint-only(lg) {
+    html {
+        font-size: 16px;
+
+        footer{
+            font-size: 15px;
+        }
+    }
+}
+
+@include media-breakpoint-only(xl) {
+    html {
+        font-size: 17px;
+
+        footer{
+            font-size: 16px;
+        }
+    }
+}
+
+
+$padding-size: 4rem;
+@include media-breakpoint-down(sm) { 
+    section.py-5{
+        padding-top: $padding-size !important;
+        padding-bottom: $padding-size !important;
+    }
+
+    section.pt-5{
+        padding-top: $padding-size !important;
+    }
+
+    section.pb-5{
+        padding-bottom: $padding-size !important;
+    }
+}

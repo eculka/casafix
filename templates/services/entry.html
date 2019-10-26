@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set page = entry %}
+
+{% block content %}
+
+<main>
+
+    {% include 'partials/navbar/index.html' %}
+
+    {% set heroBackground = page.heroBackground.one() %}
+        {% include 'partials/hero/index.html' with {
+            heroBackground: heroBackground,
+            heroTitle: page.heroTitle
+        } 
+    %}
+
+    <section class="py-2">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white pl-0">
+                    <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="pt-3 pb-5">
+        <div class="container">
+            <div class="row ">
+                <div class="col-8">
+                    {{ page.generalContent }}
+                </div>
+                <div class="col align-self-start">
+                    {% include 'partials/price-card/index.html' with {
+                        service: page
+                    } %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        {% include 'partials/cta/index.html' %}
+    </section>
+
+</main>
+
+{% endblock %}

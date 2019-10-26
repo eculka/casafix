@@ -1,0 +1,22 @@
+<section class="why-casafix py-5 bg-light">
+    <div class="container mb-3">
+        <h3 class="text-center mb-4">
+            Why Casafix plumbers?
+        </h3>
+        <div class="row text-center">
+            {% set whys = craft.entries()
+                .section('whys')
+                .all() %}
+
+            {% for why in whys %}
+                <div class="col-12 col-md-6 col-xl-3">
+                    {% set iconUrl = siteUrl~'assets/img/icon.png' %}
+                    <img class="icon mb-2" src="{{iconUrl}}" alt="">
+                    <p class="font-weight-bold mb-2 lead">{{why.title}}</p>
+                    <p class="small">{{why.whyParagraph}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'partials/cta/index.html' %}
+</section>

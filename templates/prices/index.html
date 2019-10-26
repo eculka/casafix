@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% set requestedSlug = craft.app.request.getSegment(2) %}
+{% set page = entry %}
+
+{% block content %}
+
+<main>
+
+    {% include 'partials/navbar/index.html' %}
+
+    {% set services = craft.entries()
+        .section('services')
+        .all() %}
+
+    <section class="prices py-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                {% for service in services %}
+                    <div class="col">
+                        {% include 'partials/price-card/index.html' with {
+                            service: service
+                        } %}
+                    </div>
+                {% endfor %}
+                {% for service in services %}
+                    <div class="col">
+                        {% include 'partials/price-card/index.html' with {
+                            service: service
+                        } %}
+                    </div>
+                {% endfor %}
+                {% for service in services %}
+                    <div class="col">
+                        {% include 'partials/price-card/index.html' with {
+                            service: service
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>    
+
+</main>
+
+{% endblock %}

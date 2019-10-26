@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set requestedSlug = craft.app.request.getSegment(2) %}
+{% set page = craft.entries()
+    .slug(requestedSlug|literal)
+    .one() %}
+
+{% set postcode = craft.app.request.getSegment(3) %}
+
+{% block content %}
+
+<main>
+
+    <input type="hidden" id="postcode" value="{{postcode}}">
+
+    {% include 'partials/navbar/index.html' %}
+
+    <section class="py-2">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white pl-0">
+                    <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ page.url }}">{{ page.title }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span id="area1"></span></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="pt-3 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-7 col-xl-8 align-self-start">
+                    <h1>{{page.title}} specialists available in <span id="area2"></span></h1>
+                    <p>We’re ready to help with whatever you need. We can answer your questions, give helpful advice and schedule a plumber to visit you.</p>
+                    <br>
+                    <h2>Call us on <a href="tel:00440800 860 6298">0800 860 6298</a> or fill out the form below.</h2>
+                </div>
+                <div class="col align-self-start">
+                    {% include 'partials/price-card/index.html' with {
+                        service: page
+                    } %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'partials/booking-form/index.html' %}
+
+</main>
+
+{% endblock %}

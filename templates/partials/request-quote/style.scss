@@ -1,0 +1,15 @@
+.request-quote{
+
+    @include media-breakpoint-down(sm) {
+        background-color: #ffc10752!important;
+
+        .container {
+            max-width: 100%;
+
+            .card {
+                background: transparent !important;
+                border: none;
+            }
+        }
+    }
+}

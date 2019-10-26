@@ -1,0 +1,12 @@
+{% if heroBackground is defined and heroBackground != null %}
+<section class="hero">
+    <img src="{{heroBackground.getUrl('hero')}}" alt="heroBackground.title">
+    <div class="container hero-text">
+        <div class="row">
+            <div class="col-12 p-3 bg-dark">
+                <h1 class="text-white text-center mb-0">{{page.heroTitle}}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

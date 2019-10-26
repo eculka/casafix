@@ -1,0 +1,39 @@
+<footer class="bg-dark py-4">
+    <section>
+        <div class="container">
+            <div class="row text-center text-md-left">
+                <div class="col-12 col-md-4 mb-2">
+                    <img class="logo" src="{{ siteUrl }}assets/img/logo.png" alt="Logo">
+                </div>
+                <div class="col-12 d-block d-md-none">
+                    <hr>
+                </div>
+                <div class="col-12 col-md-4 mb-2">
+                    <p class="font-weight-bold text-white lead">
+                        Services
+                    </p>
+                    {% set services = craft.entries()
+                        .section('services')
+                        .all() %}
+                    {% for service in services %}
+                        <a class="text-white" href="{{ service.url }}">{{ service.title }}</a>
+                    {% endfor %}
+                </div>
+                <div class="col-12 d-block d-md-none">
+                    <hr>
+                </div>
+                <div class="col-12 col-md-4 mb-2">
+                    <p class="font-weight-bold text-white lead">
+                        Services
+                    </p>
+                    {% set services = craft.entries()
+                        .section('services')
+                        .all() %}
+                    {% for service in services %}
+                        <a class="text-white" href="{{ service.url }}">{{ service.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>

@@ -1,0 +1,19 @@
+
+<div class="card text-center">
+    <div class="card-header py-2">
+        <p class="font-weight-bold lead mb-1" href="{{service.url}}">{{service.title}} - Pricing</p>
+        <p class="mb-0 small">Hourly rates</p>
+    </div>
+    <div class="card-body pt-1">
+        <ul class="list-group list-group-flush">
+            {% for block in service.hourlyRate.all() %}
+                {% if block.type == "weekdays" %}
+                    <p class="mb-0 mt-2 small text-muted font-weight-bold">{{block.weekdays}}<p>
+                {% elseif block.type == "rate" %}
+                    <li class="list-group-item"><i class="fa fa-clock-o mr-1 text-muted"></i>{{block.from|time('short')}} - {{block.to|time('short')}} <span class="ml-2"><strong>£{{block.price}}/ph</strong></span></li>
+                {% endif %}
+            {% endfor %}
+            <a href="{{ siteUrl }}book" class="btn btn-outline-primary mt-2 btn-block">Book Now</a>
+        </ul>
+    </div>
+</div>

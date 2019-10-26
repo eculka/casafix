@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% set requestedSlug = craft.app.request.getSegment(2) %}
+{% set page = entry %}
+
+{% block content %}
+
+<main>
+
+    {% include 'partials/navbar/index.html' %}
+
+    <section>
+        Services
+    </section>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top d-flex">
+    <div class="container">
+        <div class="d-flex flex-grow-1 align-items-center">
+            <a class="navbar-brand" href="{{ siteUrl }}"><img class="logo" src="{{ siteUrl }}assets/img/logo.png" alt="Casafix Logo" title="Casafix"></a>
+            <div class="d-flex align-items-center flex-grow-1">
+                <ul class="navbar-nav mr-auto flex-row d-none d-lg-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% set services = craft.entries()
+                                .section('services')
+                                .all() %}
+                            {% for service in services %}
+                                <a class="dropdown-item" href="{{ service.url }}">{{ service.title }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ siteUrl }}prices">Prices</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link lead" href="tel:+44{{ contactInformation.phone }}"> <i class="fa fa-phone mr-1 border-rounded"></i><span class="d-none d-md-inline-block">{{ contactInformation.phone }}</span></a>
+                    </li>
+                </ul>
+                <a class="btn btn-warning text-white d-block d-md-none ml-auto phone" href="tel:+44{{ contactInformation.phone }}"><i class="fa fa-phone mr-1 border-rounded"></i></a>
+                {% if 'book' != craft.app.request.getSegment(1) %}
+                    <a href="{{ siteUrl }}book" class="btn d-block btn-primary ml-2 text-center">Book Now</a>
+                {% endif %}
+            </div>
+            <span class="burger-menu d-block d-lg-none ml-2" onclick="toggleMobileMenu()">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </span>
+        </div>
+    </div>
+</nav>
+<nav class="mobile-menu bg-dark d-flex align-items-center">
+    <ul class="navbar-nav mr-auto flex-column justify-content-center align-items-center flex-fill">
+        {% set services = craft.entries()
+            .section('services')
+            .all() %}
+        {% for service in services %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ service.url }}">{{ service.title }}</a>
+            </li>
+        {% endfor %}
+        <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ siteUrl }}prices">Prices</a>
+        </li>
+    </ul>
+</nav>
