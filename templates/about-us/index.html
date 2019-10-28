@@ -1,22 +1,33 @@
-{% extends "layout.html" %} {% set page = craft.entries.section('home')[0] %}
+{% extends "layout.html" %}
+
+{% set requestedSlug = craft.app.request.getSegment(2) %}
+{% set page = entry %}
+
 {% block content %}
+
 <main>
 
     {% include 'partials/navbar/index.html' %}
-    
-    {% set heroBackground = page.heroBackground.one() %}
-    {% include 'partials/hero/index.html' with {
-            heroBackground: heroBackground,
-            heroTitle: page.heroTitle
-        } 
-    %}
 
-    {% include 'partials/request-quote/index.html' %}
+    <section class="py-2">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white pl-0">
+                    <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
 
-    {% include 'partials/whys/index.html' %}
+    <section class="pt-3 pb-3">
+        <div class="container">
+            {% include 'partials/content/index.html' %}
+        </div>
+    </section>
 
-    <section class="services py-5">
-        <div class="container text-center mb-4">
+    <section class="services bg-light py-5">
+        <div class="container text-center mb-5">
             <div class="row justify-content-center mb-2">
                 <div class="col-12 col-md-8">
                     <h2>Services</h2>
@@ -31,7 +42,7 @@
                     .all() %}
                 {% for service in services %}
                     {% set heroBackground = service.heroBackground.one() %}
-                    <div class="col-12 col-md-4 mb-4">
+                    <div class="col-12 col-md-4">
                         <h3><a href="{{ service.url }}">{{service.title}}</a></h3>
                         <div class="card text-white">
                             <div class="overlay"></div>
@@ -77,9 +88,10 @@
         </div>
     </section>
 
-    <section class="bg-light py-5">
+    <section class="py-5">
         {% include 'partials/cta/index.html' %}
     </section>
 
 </main>
+
 {% endblock %}

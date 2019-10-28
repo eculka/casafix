@@ -1,4 +1,4 @@
-dateModified: 1572099917
+dateModified: 1572216329
 email:
   fromEmail: edgar.culka@yahoo.co.uk
   fromName: Casafix
@@ -76,6 +76,43 @@ fields:
       columnType: text
     fieldGroup: 4700bb4a-77d5-4aac-8a9f-df82ecc3c56b
     contentColumnType: text
+  3a1e4036-8241-44b1-bcaa-b35c2968cf22:
+    name: Review
+    handle: review
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: '1'
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 90193d09-74a1-4b79-9f12-2cdceb793ed0
+  42f20946-7ab5-434d-ab84-acdf0b209449:
+    name: Service
+    handle: service
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:704c28e8-b43a-45e5-a625-8c62b5ead241'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: Service
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 90193d09-74a1-4b79-9f12-2cdceb793ed0
   5a81d84f-9353-46e9-a5cc-d23fd8b9fca2:
     name: Phone
     handle: phone
@@ -93,20 +130,21 @@ fields:
       columnType: text
     fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
     contentColumnType: text
-  66c7dab4-a27d-45fa-8bd7-02ee00c02e8d:
-    name: 'General Content'
+  61ca6dbd-d222-4603-8d42-72335bc60d73:
+    name: Content
     handle: generalContent
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
-    type: craft\ckeditor\Field
+    type: craft\fields\Matrix
     settings:
-      purifierConfig: ''
-      purifyHtml: '1'
-      columnType: text
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_generalcontent}}'
+      propagationMethod: all
+    contentColumnType: string
     fieldGroup: 390b2ddb-714c-43a4-93f3-6b69e7544979
-    contentColumnType: text
   6904bf2a-6825-4b9f-b3a9-d89b91babd33:
     name: 'Why Link'
     handle: whyLink
@@ -223,6 +261,23 @@ fields:
       columnType: text
     fieldGroup: 4700bb4a-77d5-4aac-8a9f-df82ecc3c56b
     contentColumnType: text
+  b7d0bf73-7ac3-4114-a05f-a6eb5dbec2bc:
+    name: Author
+    handle: reviewAuthor
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 90193d09-74a1-4b79-9f12-2cdceb793ed0
 globalSets:
   a96930f3-bd7f-4292-bd17-372d63b6ad14:
     name: 'Contact Information'
@@ -248,7 +303,54 @@ imageTransforms:
     format: null
     quality: 100
     interlace: none
+  b882cc12-7c57-433c-a025-21629737b51e:
+    format: null
+    handle: thumbnail
+    height: 280
+    interlace: none
+    mode: crop
+    name: Thumbnail
+    position: center-center
+    quality: null
+    width: 900
 matrixBlockTypes:
+  1e30b46a-331a-4e84-b023-3f9f2ea5b74a:
+    field: 61ca6dbd-d222-4603-8d42-72335bc60d73
+    name: 'Single column'
+    handle: singleColumn
+    sortOrder: 1
+    fields:
+      b7b8b1f5-ffec-4c94-8bfe-b1843eed00de:
+        name: Editor
+        handle: editor
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: ''
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      c5c5f2a9-d274-4d7c-a2ca-72906fc12c6e:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              b7b8b1f5-ffec-4c94-8bfe-b1843eed00de:
+                required: false
+                sortOrder: 1
   7f390b3e-542a-426c-8917-b95ef7166ef9:
     name: weekdays
     handle: weekdays
@@ -350,6 +452,67 @@ matrixBlockTypes:
           minuteIncrement: '60'
         fieldGroup: null
         contentColumnType: datetime
+  b73572e1-8de1-4ca5-aa77-528a9d71a6f9:
+    field: 61ca6dbd-d222-4603-8d42-72335bc60d73
+    name: 'Two Column'
+    handle: twoColumn
+    sortOrder: 2
+    fields:
+      45f6801d-7dce-4ba5-af4d-f3d9dfc9a895:
+        name: 'Editor Left'
+        handle: editorLeft
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: ''
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+      4eb58cca-9e4f-452b-9a8a-98102c902be0:
+        name: 'Editor Right'
+        handle: editorRight
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: ''
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      a2032b2b-8117-43c7-afa6-d93a0f88c9e3:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              45f6801d-7dce-4ba5-af4d-f3d9dfc9a895:
+                required: false
+                sortOrder: 1
+              4eb58cca-9e4f-452b-9a8a-98102c902be0:
+                required: false
+                sortOrder: 2
 plugins:
   ckeditor:
     edition: standard
@@ -385,6 +548,10 @@ plugins:
       pluginNameOverride: ''
       enableUserSync: '1'
       enableAutoList: '1'
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
 routes:
   a1eb4535-e87e-476d-9b94-67f2fe7f25ca:
     template: /services/location
@@ -401,6 +568,72 @@ routes:
     sortOrder: 1
     siteUid: null
 sections:
+  011c6150-eac0-4057-a98e-f45ced29c7bb:
+    name: 'About Us'
+    handle: aboutUs
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: about-us
+        template: about-us/
+    entryTypes:
+      30998579-7aaa-4af1-bf83-b50ad9e99e0a:
+        name: 'About Us'
+        handle: aboutUs
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          5308e9db-15e7-484f-aa08-98d1538fd823:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  61ca6dbd-d222-4603-8d42-72335bc60d73:
+                    required: false
+                    sortOrder: 1
+  3e9f5730-2e65-4e11-aca8-c7c15e1eeb31:
+    name: Reviews
+    handle: reviews
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'reviews/{slug}'
+        template: ''
+    entryTypes:
+      d7bfe711-9a0c-416d-bfb1-7379aaae9140:
+        name: Reviews
+        handle: reviews
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: '{entry.author}'
+        sortOrder: 1
+        fieldLayouts:
+          a21232a4-2d80-41ab-bbc9-e2605d097ec6:
+            tabs:
+              -
+                name: Reviews
+                sortOrder: 1
+                fields:
+                  3a1e4036-8241-44b1-bcaa-b35c2968cf22:
+                    required: false
+                    sortOrder: 2
+                  42f20946-7ab5-434d-ab84-acdf0b209449:
+                    required: false
+                    sortOrder: 4
+                  b7d0bf73-7ac3-4114-a05f-a6eb5dbec2bc:
+                    required: false
+                    sortOrder: 1
   457707fd-f1e9-4cb5-85f7-d7b0d7d51ab4:
     name: Whys
     handle: whys
@@ -467,7 +700,7 @@ sections:
                 name: 'Tab 1'
                 sortOrder: 1
                 fields:
-                  66c7dab4-a27d-45fa-8bd7-02ee00c02e8d:
+                  61ca6dbd-d222-4603-8d42-72335bc60d73:
                     required: false
                     sortOrder: 3
                   7645cb02-d8e9-4e18-96c4-b9efe04b2ac9:
@@ -505,10 +738,6 @@ sections:
               -
                 name: 'Tab 1'
                 sortOrder: 1
-                fields:
-                  66c7dab4-a27d-45fa-8bd7-02ee00c02e8d:
-                    required: false
-                    sortOrder: 1
     siteSettings:
       b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
         enabledByDefault: true
@@ -536,7 +765,7 @@ sections:
                 name: 'Tab 1'
                 sortOrder: 1
                 fields:
-                  66c7dab4-a27d-45fa-8bd7-02ee00c02e8d:
+                  61ca6dbd-d222-4603-8d42-72335bc60d73:
                     required: false
                     sortOrder: 1
     siteSettings:
@@ -565,10 +794,6 @@ sections:
               -
                 name: Common
                 sortOrder: 1
-                fields:
-                  66c7dab4-a27d-45fa-8bd7-02ee00c02e8d:
-                    required: false
-                    sortOrder: 1
     siteSettings:
       b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
         enabledByDefault: true
@@ -649,9 +874,6 @@ sections:
                 name: Common
                 sortOrder: 1
                 fields:
-                  66c7dab4-a27d-45fa-8bd7-02ee00c02e8d:
-                    required: false
-                    sortOrder: 1
                   76fcc8c0-5174-4cb9-8820-68de06912ea7:
                     required: false
                     sortOrder: 3

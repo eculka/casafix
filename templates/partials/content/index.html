@@ -1,0 +1,24 @@
+{% if page is defined%}
+    {% set entry = page %}
+{% endif %}
+
+{% set i = 1 %}
+{% set rows = entry.generalContent.all() %}
+
+{% for row in rows %}
+    <div class="row{{rows|length != i ? ' mb-2'}}">
+        {% if row.type == "singleColumn" %}
+            <div class="col-12">
+                {{row.editor}}
+            </div>
+        {% elseif row.type == "twoColumn" %}
+            <div class="col-12 col-md-6 mb-2">
+                {{row.editorLeft}}
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+                {{row.editorRight}}
+            </div>
+        {% endif %}
+    </div>
+    {% set i = i + 1 %}
+{% endfor %}
