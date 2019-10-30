@@ -40,7 +40,8 @@ nav{
     }
 
     .logo{
-        max-height: 3rem;
+        max-height: 2.3rem;
+        padding-bottom: 0.5rem;
     }
 
     .navbar-nav {
@@ -69,12 +70,12 @@ nav.mobile-menu {
     transform: translateY(-100%);
     left: 0;
     z-index: 2;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100vh;
 
     ul {
         height: 100vh;
-        overflow-y: scroll;
+        overflow-y: auto;
         position: absolute;
         top: 0;
         width: 100%;
@@ -91,6 +92,7 @@ nav.mobile-menu {
     }
 
     .burger-menu {
+        left: -.5rem;
 
         span {
             top: 50% !important;

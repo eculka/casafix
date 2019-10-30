@@ -2,8 +2,12 @@
     .section('cta')
     .one() %}
 
-<div class="container cta-container bg-dark text-white p-3">
-    {% include 'partials/content/index.html' with {
-        page: ctaPage
-    } %}
+<div class="container cta-container">
+    <div class="row">
+        <div class="col-12 py-3 bg-warning">
+            {% include 'partials/content/index.html' with {
+                page: ctaPage
+            } %}
+        </div>
+    </div>
 </div>

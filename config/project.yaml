@@ -1,4 +1,4 @@
-dateModified: 1572216329
+dateModified: 1572476031
 email:
   fromEmail: edgar.culka@yahoo.co.uk
   fromName: Casafix
@@ -113,6 +113,23 @@ fields:
       validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 90193d09-74a1-4b79-9f12-2cdceb793ed0
+  4332767c-a894-4e73-bc79-db62533ea0cf:
+    name: Country
+    handle: country
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
   5a81d84f-9353-46e9-a5cc-d23fd8b9fca2:
     name: Phone
     handle: phone
@@ -130,6 +147,23 @@ fields:
       columnType: text
     fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
     contentColumnType: text
+  5efac3ac-451e-47c6-8dc8-dc4fbb357702:
+    name: 'Post Code'
+    handle: postCode
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
   61ca6dbd-d222-4603-8d42-72335bc60d73:
     name: Content
     handle: generalContent
@@ -278,6 +312,91 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: 90193d09-74a1-4b79-9f12-2cdceb793ed0
+  b9db58ae-6d19-4b84-9004-8236b371bb61:
+    name: 'Address 1st Line'
+    handle: address1stLine
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
+  bcdbadef-d7c7-4e03-8449-450157049ba9:
+    name: City
+    handle: city
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
+  d30256df-c9ff-4109-b7b3-32a2a76f3c3b:
+    name: 'Address 2nd Line'
+    handle: address2ndLine
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
+  e18988a2-d326-4365-a159-eb3717288534:
+    name: 'Email Address'
+    handle: emailAddress
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
+  ec551778-a17d-4456-894e-a8e8c3822a52:
+    name: 'Company Name'
+    handle: companyName
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
 globalSets:
   a96930f3-bd7f-4292-bd17-372d63b6ad14:
     name: 'Contact Information'
@@ -289,9 +408,30 @@ globalSets:
             name: Globals
             sortOrder: 1
             fields:
+              4332767c-a894-4e73-bc79-db62533ea0cf:
+                required: false
+                sortOrder: 7
               5a81d84f-9353-46e9-a5cc-d23fd8b9fca2:
                 required: false
                 sortOrder: 1
+              5efac3ac-451e-47c6-8dc8-dc4fbb357702:
+                required: false
+                sortOrder: 8
+              b9db58ae-6d19-4b84-9004-8236b371bb61:
+                required: false
+                sortOrder: 4
+              bcdbadef-d7c7-4e03-8449-450157049ba9:
+                required: false
+                sortOrder: 6
+              d30256df-c9ff-4109-b7b3-32a2a76f3c3b:
+                required: false
+                sortOrder: 5
+              e18988a2-d326-4365-a159-eb3717288534:
+                required: false
+                sortOrder: 2
+              ec551778-a17d-4456-894e-a8e8c3822a52:
+                required: false
+                sortOrder: 3
 imageTransforms:
   8a529018-61c2-46fe-9000-3dea638be757:
     name: Hero
@@ -313,6 +453,16 @@ imageTransforms:
     position: center-center
     quality: null
     width: 900
+  ea5e51be-5392-4a50-8307-c226d3195f18:
+    format: null
+    handle: logo
+    height: 360
+    interlace: none
+    mode: fit
+    name: Logo
+    position: center-center
+    quality: null
+    width: 600
 matrixBlockTypes:
   1e30b46a-331a-4e84-b023-3f9f2ea5b74a:
     field: 61ca6dbd-d222-4603-8d42-72335bc60d73
@@ -820,6 +970,39 @@ sections:
         hasUrls: true
         uriFormat: 'blog/{slug}'
         template: ''
+  f4b14619-41b6-4100-a1ff-6065877818d6:
+    name: Accreditations
+    handle: accreditations
+    type: structure
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'accreditations/{slug}'
+        template: ''
+    structure:
+      uid: 0a5863be-ea24-41b4-a09c-8f6ea08d1e81
+      maxLevels: null
+    entryTypes:
+      daa87249-09db-4477-893c-f4687c68ff38:
+        name: Accreditations
+        handle: accreditations
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          a3561526-5856-4614-9b23-71c15f416c94:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  09ada5ee-9f60-49be-98d0-029d3125f420:
+                    required: false
+                    sortOrder: 1
   fae373d6-88a4-4344-9ae6-6b29237e0ed3:
     name: Home
     handle: home

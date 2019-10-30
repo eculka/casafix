@@ -37,10 +37,6 @@ img{
     }
 }
 
-.bg-warning {
-    background-color: #ffc10752!important;
-}
-
 .required {
 
     label {
@@ -57,5 +53,15 @@ img{
             border-color: red;
         }
 
+    }
+}
+
+.cta {
+    
+    @include media-breakpoint-down(sm) {
+    
+        .container {
+            max-width: 100%;
+        }
     }
 }

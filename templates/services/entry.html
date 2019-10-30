@@ -28,8 +28,25 @@
     <section class="pt-3 pb-3">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-8">
-                    {% include 'partials/content/index.html' %}
+                <div class="col-12 col-md-8 mb-2">
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            {% include 'partials/content/index.html' %}
+                        </div>
+                    </div>
+                    {% set accreditations = craft.entries()
+                        .section('accreditations')
+                        .all() %}
+                        <div class="container bg-light">
+                            <div class="row align-items-center">
+                                {% for accreditation in accreditations %}
+                                    <div class="col-3 px-2 py-2 px-md-3 px-xl-4">
+                                        {% set accreditaionLogo = accreditation.image.one() %}
+                                        <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                 </div>
                 <div class="col align-self-start">
                     {% include 'partials/price-card/index.html' with {
@@ -40,7 +57,7 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light">
+    <section class="bg-light py-0 py-md-5 cta">
         {% include 'partials/cta/index.html' %}
     </section>
 

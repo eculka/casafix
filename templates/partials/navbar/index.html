@@ -28,12 +28,12 @@
 
                 <ul class="navbar-nav ml-auto d-none d-md-flex">
                     <li class="nav-item">
-                        <a class="nav-link lead" href="tel:+44{{ contactInformation.phone }}"> <i class="fa fa-phone mr-1 border-rounded"></i><span class="d-none d-md-inline-block">{{ contactInformation.phone }}</span></a>
+                        <a class="nav-link lead" href="tel:+44{{ contactInformation.phone }}"> <i class="fa fa-phone mr-1 border-rounded"></i><span class="d-none d-md-inline-block">{{ contactInformation.phone }} <span class="text-lowercase">(free)</span></span></a>
                     </li>
                 </ul>
                 <a class="btn btn-warning text-white d-block d-md-none ml-auto phone" href="tel:+44{{ contactInformation.phone }}"><i class="fa fa-phone mr-1 border-rounded"></i></a>
                 {% if 'book' != craft.app.request.getSegment(1) %}
-                    <a href="{{ siteUrl }}book" class="btn d-block btn-primary ml-2 text-center">Book Now</a>
+                    <a href="{{ siteUrl }}book" class="btn d-block btn-primary ml-2 text-center">Book</a>
                 {% endif %}
             </div>
             <span class="burger-menu d-block d-lg-none ml-2" onclick="toggleMobileMenu()">
