@@ -87,6 +87,25 @@ nav.mobile-menu {
 
 .mobile-menu {
 
+    nav.navbar{
+
+        .container {
+            position: relative;
+            padding-bottom: 1rem;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                height: .1rem;
+                background: rgba(#fff, .2);
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+
     nav.mobile-menu {
         transform: translateY(0);
     }
