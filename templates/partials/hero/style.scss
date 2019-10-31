@@ -3,6 +3,10 @@
 .hero{
     position: relative;
 
+    .bg-dark {
+        background-color: rgba(#3142ab, .85) !important;
+    }
+
     img {
         width: 100%;
     }

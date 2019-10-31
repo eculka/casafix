@@ -5,21 +5,11 @@
 <div class="container cta-container">
     <div class="row">
         <div class="col-12">
-            <div class="card bg-warning border-0">
-                <div class="row no-gutters">
-                    <div class="col-4 d-none d-md-flex flex-shrink-1 align-items-center justify-content-center">
-                        {% set ctaImage = ctaPage.image.one()%}
-                        <img src="{{ctaImage.getUrl()}}" class="card-img" alt="{{ctaImage.title}}">
-                    </div>
-                    <div class="col flex-grow-1 d-flex align-items-center">
-                        <div class="card-body py-4 py-md-0 py-xl-2 text-center">
-                            {% include 'partials/content/index.html' with {
-                                    page: ctaPage
-                                }
-                            %}
-                        </div>
-                    </div>
-                </div>
+            <div class="card bg-warning border-0 p-4 text-center">
+                {% include 'partials/content/index.html' with {
+                        page: ctaPage
+                    }
+                %}
             </div>
         </div>
     </div>

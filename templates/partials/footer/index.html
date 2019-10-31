@@ -3,11 +3,13 @@
         <div class="container text-white">
             <div class="row text-center text-md-left">
                 <div class="col-12 col-md-4 mb-2 d-flex flex-column align-items-center align-items-md-start">
-                    <a href="{{ siteUrl }}"><img class="logo mb-2" src="{{ siteUrl }}assets/img/logo.png" alt="Logo"></a>
-                    <span><a href="tel:+44{{contactInformation.phone}}"><i class="fa fa-phone mr-1"></i>{{contactInformation.phone}}</a></span>
-                    <span><a href="mailto:{{contactInformation.emailAddress}}"><i class="fa fa-envelope mr-1"></i>{{contactInformation.emailAddress}}</a></span>
+                    <p class="font-weight-bold text-white lead">
+                        Contacts
+                    </p>
+                    <span><a href="tel:+44{{contactInformation.phone}}" class="text-white"><i class="fa fa-phone mr-1"></i>{{contactInformation.phone}}</a></span>
+                    <span><a href="mailto:{{contactInformation.emailAddress}}" class="text-white"><i class="fa fa-envelope mr-1"></i>{{contactInformation.emailAddress}}</a></span>
                     <ul class="navbar-nav address mt-2">
-                        <li>{{contactInformation.companyName}}</li>
+                        <li class="font-weight-bold">{{contactInformation.companyName}}</li>
                         <li>{{contactInformation.address1stLine}}</li>
                         <li>{{contactInformation.address2ndLine}}</li>
                         <li>{{contactInformation.city}}</li>
@@ -50,7 +52,7 @@
         <div class="container text-light text-small text-center text-md-left d-flex align-items-center flex-column flex-md-row">
             <span>&copy; 2019</span>
             <span class="ml-md-auto">
-                Designed by <a href="https://edgarculka.co.uk">Edgar Culka</a>
+                <a href="{{ siteUrl }}"><img class="logo mb-2" src="{{ siteUrl }}assets/img/logo.png" alt="Logo"></a>
             </span>
         </div>
     </section>

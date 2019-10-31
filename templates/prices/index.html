@@ -23,8 +23,8 @@
     <section class="pt-3 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-8">
-                    {{ page.generalContent }}
+                <div class="col-12 mb-2">
+                    {% include 'partials/content/index.html' %}
                 </div>
             </div>
         </div>
@@ -36,14 +36,19 @@
 
     <section class="prices py-5 bg-light">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center price-card-slider">
                 {% for service in services %}
-                    <div class="col-12 col-sm-6 col-md-6 col-xl-4 mb-2">
+                    <div class="mx-1 mx-md-2">
                         {% include 'partials/price-card/index.html' with {
-                            service: service
+                            service: service,
+                            hideButtons: true,
+                            hideImage: false
                         } %}
                     </div>
                 {% endfor %}
+            </div>
+            <div class="d-flex">
+                <a href="{{ siteUrl }}book" class="btn btn-primary mx-auto mt-3">Book Now</a>
             </div>
         </div>
     </section>    

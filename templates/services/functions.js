@@ -7,7 +7,7 @@
     getAreaByPostcode(postcode)
         .then(data => {
             if (data.result.nhs_ha == 'London') {
-                area = data.result.parliamentary_constituency;
+                area = data.result.admin_district;
                 setTimeout(() => {
                     doContinue();
                 }, 0);

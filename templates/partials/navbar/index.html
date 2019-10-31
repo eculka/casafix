@@ -1,3 +1,7 @@
+{% set services = craft.entries()
+    .section('services')
+    .all() %}
+
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top d-flex">
     <div class="container">
         <div class="d-flex flex-grow-1 align-items-center">
@@ -10,9 +14,6 @@
                             Services
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% set services = craft.entries()
-                                .section('services')
-                                .all() %}
                             {% for service in services %}
                                 <a class="dropdown-item" href="{{ service.url }}">{{ service.title }}</a>
                             {% endfor %}
@@ -46,19 +47,20 @@
 </nav>
 <nav class="mobile-menu bg-dark d-flex align-items-center">
     <ul class="navbar-nav mr-auto flex-column justify-content-center align-items-center flex-fill py-5">
-        {% set services = craft.entries()
-            .section('services')
-            .all() %}
-        {% for service in services %}
-            <li class="nav-item text-center">
-                <a class="nav-link" href="{{ service.url }}">{{ service.title }}</a>
-            </li>
-        {% endfor %}
+        <li class="nav-item text-center">
+            <a class="nav-link" href="{{ siteUrl }}">Home</a>
+        </li>
         <li class="nav-item text-center">
             <a class="nav-link" href="{{ siteUrl }}about-us">About Us</a>
         </li>
         <li class="nav-item text-center">
             <a class="nav-link" href="{{ siteUrl }}prices">Prices</a>
         </li>
+        <hr>
+        {% for service in services %}
+            <li class="nav-item text-center">
+                <a class="nav-link" href="{{ service.url }}">{{ service.title }}</a>
+            </li>
+        {% endfor %}
     </ul>
 </nav>

@@ -64,7 +64,9 @@
                 </div>
                 <div class="col align-self-start">
                     {% include 'partials/price-card/index.html' with {
-                        service: page
+                        service: page,
+                        hideButtons: false,
+                        hideImage: true
                     } %}
                 </div>
             </div>
