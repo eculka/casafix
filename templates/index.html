@@ -33,7 +33,7 @@
                     {% set heroBackground = service.heroBackground.one() %}
                     <div class="col-12 col-md-4 mb-4">
                         <h3><a href="{{ service.url }}">{{service.title}}</a></h3>
-                        <div class="card text-white">
+                        <div class="card text-white border-0">
                             <div class="overlay"></div>
                             <a href="{{ service.url }}">
                                 <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">

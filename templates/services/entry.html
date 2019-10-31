@@ -8,11 +8,11 @@
     {% include 'partials/navbar/index.html' %}
 
     {% set heroBackground = page.heroBackground.one() %}
-        {% include 'partials/hero/index.html' with {
-            heroBackground: heroBackground,
-            heroTitle: page.heroTitle
-        } 
-    %}
+        <!-- {% include 'partials/hero/index.html' with {
+                heroBackground: heroBackground,
+                heroTitle: page.heroTitle
+            } 
+        %} -->
 
     <section class="py-2">
         <div class="container">
@@ -27,9 +27,15 @@
 
     <section class="pt-3 pb-3">
         <div class="container">
+            <h1>{{page.heroTitle}}</h1>
             <div class="row">
                 <div class="col-12 col-md-8 mb-2">
                     <div class="row">
+                        <div class="col-12 mb-2">
+                            <div class="card bg-light text-white mb-2 border-0">
+                                <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
+                            </div>
+                        </div>
                         <div class="col-12 mb-2">
                             {% include 'partials/content/index.html' %}
                         </div>
@@ -37,7 +43,7 @@
                     {% set accreditations = craft.entries()
                         .section('accreditations')
                         .all() %}
-                        <div class="container bg-light">
+                        <div class="card bg-light px-3 border-0">
                             <div class="row align-items-center">
                                 {% for accreditation in accreditations %}
                                     <div class="col-3 px-2 py-2 px-md-3 px-xl-4">

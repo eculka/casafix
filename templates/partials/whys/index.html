@@ -22,19 +22,17 @@
         <h4 class="text-center mb-3">
             Our Accreditations
         </h4>
-        <div class="row text-center align-items-center">
+        <div class="card bg-white px-3 border-0">
             {% set accreditations = craft.entries()
                 .section('accreditations')
                 .all() %}
-            <div class="col-12 bg-white d-flex align-items-center">
-                <div class="row align-items-center">
-                    {% for accreditation in accreditations %}
-                        <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
-                            {% set accreditaionLogo = accreditation.image.one() %}
-                            <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
-                        </div>
-                    {% endfor %}
-                </div>
+            <div class="row align-items-center">
+                {% for accreditation in accreditations %}
+                    <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
+                        {% set accreditaionLogo = accreditation.image.one() %}
+                        <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

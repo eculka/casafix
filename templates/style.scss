@@ -59,6 +59,7 @@ img{
 .cta {
     
     @include media-breakpoint-down(sm) {
+        background-color: #FFD65A!important;
     
         .container {
             max-width: 100%;

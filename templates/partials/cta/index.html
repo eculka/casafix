@@ -4,10 +4,12 @@
 
 <div class="container cta-container">
     <div class="row">
-        <div class="col-12 py-3 bg-warning">
-            {% include 'partials/content/index.html' with {
-                page: ctaPage
-            } %}
+        <div class="col-12">
+            <div class="card bg-warning border-0 py-3">
+                {% include 'partials/content/index.html' with {
+                    page: ctaPage
+                } %}
+            </div>
         </div>
     </div>
 </div>
