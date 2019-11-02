@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set requestedSlug = craft.app.request.getSegment(2) %}
-{% set page = entry %}
+{% set services = craft.entries().section('services').all() %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white pl-0">
                     <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                    <li class="breadcrumb-item active" aria-current="entry">{{ entry.title }}</li>
                 </ol>
             </nav>
         </div>
@@ -37,9 +37,6 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                {% set services = craft.entries()
-                    .section('services')
-                    .all() %}
                 {% for service in services %}
                     {% set heroBackground = service.heroBackground.one() %}
                     <div class="col-12 col-md-4">

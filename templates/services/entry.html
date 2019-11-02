@@ -1,25 +1,27 @@
 {% extends "layout.html" %}
-{% set page = entry %}
+
+{% set requestedSlug = craft.app.request.getSegment(2) %}
+{% set entry = craft.entries().slug(requestedSlug|literal).one() %}
+{% set heroBackground = entry.heroBackground.one() %}
+{% set accreditations = craft.entries().section('accreditations').all() %}
 
 {% block content %}
+
+{% if craft.app.request.getSegment(3)|length > 0 %}
+    {% set postcode = craft.app.request.getSegment(3) %}
+    <input type="hidden" id="postcode" value="{{postcode}}">
+{% endif %}
 
 <main>
 
     {% include 'partials/navbar/index.html' %}
-
-    {% set heroBackground = page.heroBackground.one() %}
-        <!-- {% include 'partials/hero/index.html' with {
-                heroBackground: heroBackground,
-                heroTitle: page.heroTitle
-            } 
-        %} -->
 
     <section class="py-2">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white pl-0">
                     <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                    <li class="breadcrumb-item active" aria-current="entry">{{ entry.title }}</li>
                 </ol>
             </nav>
         </div>
@@ -27,36 +29,44 @@
 
     <section class="pt-3 pb-3">
         <div class="container">
-            <h1>{{page.heroTitle}}</h1>
             <div class="row">
                 <div class="col-12 col-md-8 mb-2">
-                    <div class="row">
-                        <div class="col-12 mb-2">
-                            <div class="card bg-light text-white mb-2 border-0">
-                                <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
+                    {% if postcode is defined %}
+                        <div class="d-flex mb-2">
+                            <h1><i class="fa fa-check text-success mr-1"></i></h1>
+                            <div>
+                                <h1>{{entry.title}} in <span id="area1">London</span> is Available</h1>
+                                <p>We’re ready to help with whatever you need. We can answer your questions, give helpful advice and schedule an engineer to visit you.</p>  
                             </div>
                         </div>
+                        <div class="card bg-light text-white mb-5 border-0">
+                            <img id="map" class="card-img">
+                        </div>
+                    {% else %}
+                        <h1>{{entry.heroTitle}}</h1>
+                        <div class="card bg-light text-white mb-5 border-0">
+                            <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
+                        </div>
+                    {% endif %}
+                    <div class="row">
                         <div class="col-12 mb-2">
                             {% include 'partials/content/index.html' %}
                         </div>
                     </div>
-                    {% set accreditations = craft.entries()
-                        .section('accreditations')
-                        .all() %}
-                        <div class="card bg-light px-3 border-0">
-                            <div class="row align-items-center">
-                                {% for accreditation in accreditations %}
-                                    <div class="col-3 px-2 py-2 px-md-3 px-xl-4">
-                                        {% set accreditaionLogo = accreditation.image.one() %}
-                                        <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
-                                    </div>
-                                {% endfor %}
-                            </div>
+                    <div class="card bg-light px-3 border-0">
+                        <div class="row align-items-center">
+                            {% for accreditation in accreditations %}
+                                <div class="col-3 px-2 py-2 px-md-3 px-xl-4">
+                                    {% set accreditaionLogo = accreditation.image.one() %}
+                                    <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
+                                </div>
+                            {% endfor %}
                         </div>
+                    </div>
                 </div>
                 <div class="col align-self-start">
                     {% include 'partials/price-card/index.html' with {
-                        service: page,
+                        service: entry,
                         hideButtons: false,
                         hideImage: true
                     } %}
@@ -70,5 +80,76 @@
     </section>
 
 </main>
+
+{% minify js%}
+<script>
+    (function () {
+
+        const defaultArea = 'London';
+        let lat = '0';
+        let lon = '0';
+        let mapUrlBase = 'https://maps.googleapis.com/maps/api/staticmap?center=London,UK&zoom=9&scale=2&size=640x200&maptype=roadmap&key=AIzaSyDq_al7-m5pkeAWG8O2rRczEJFi6wzOHm0&markers=size:mid%7Ccolor:0x28a745%7C';
+        let area = '';
+        let postcode = document.getElementById("postcode") ? document.getElementById("postcode").value : '';
+
+        getAreaByPostcode(postcode)
+            .then(data => {
+                if (data.result.nhs_ha == 'London') {
+                    area = data.result.admin_district;
+                    lat = data.result.latitude;
+                    lon = data.result.longitude;
+                    console.log(data.result);
+                    setTimeout(() => {
+                        doContinue();
+                    }, 0);
+                } else {
+                    area = defaultArea;
+                    setTimeout(() => {
+                        doContinue();
+                    }, 0);
+                }
+            })
+            .catch(error => {
+                area = defaultArea;
+                setTimeout(() => {
+                    doContinue();
+                }, 0);
+            });
+
+        function doContinue(){
+            document.getElementById("area1") ? document.getElementById("area1").innerHTML = area : '';
+            document.getElementById("map").src = mapUrlBase + lat + ',' + lon;
+        }
+
+        return false;
+
+        function getAreaByPostcode(postcode) {
+            
+            const url = 'http://api.postcodes.io/postcodes/' + postcode;
+
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: {
+                        key: 'value',
+                    },
+                    success: function (data) {
+                        setTimeout(() => {
+                            resolve(data)
+                        }, 0);
+                    },
+                    error: function (error) {
+                        setTimeout(() => {
+                            reject(error)
+                        }, 0);
+                    },
+                })
+            })
+        }
+
+        })();
+</script>
+{% endminify %}
 
 {% endblock %}

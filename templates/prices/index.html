@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set requestedSlug = craft.app.request.getSegment(2) %}
-{% set page = entry %}
+{% set services = craft.entries().section('services').all() %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white pl-0">
                     <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                    <li class="breadcrumb-item active" aria-current="entry">{{ entry.title }}</li>
                 </ol>
             </nav>
         </div>
@@ -29,10 +29,6 @@
             </div>
         </div>
     </section>
-
-    {% set services = craft.entries()
-        .section('services')
-        .all() %}
 
     <section class="prices py-5 bg-light">
         <div class="container">
@@ -58,5 +54,42 @@
     </section>
 
 </main>
+
+{% minify js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js"></script>
+    <script>
+        $('.price-card-slider').slick({
+            arrows: false,
+            initialSlide: 1,
+            dots: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            centerMode: true,
+            centerPadding: '160px',
+            adaptiveHeight: true,
+            focusOnSelect: true,
+            infinite: false,
+            responsive: [
+                {
+                breakpoint: 768,
+                settings: {
+                    centerPadding: '30px',
+                    initialSlide: 1,
+                    slidesToShow: 3
+                    
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    centerPadding: '30px',
+                    initialSlide: 0,
+                    slidesToShow: 1
+                }
+                }
+            ]
+        });
+    </script>
+{% endminify %}
 
 {% endblock %}

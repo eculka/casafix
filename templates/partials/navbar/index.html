@@ -64,3 +64,21 @@
         {% endfor %}
     </ul>
 </nav>
+
+{% minify %}
+<script>
+    function toggleMobileMenu() {
+        document.body.classList.toggle("mobile-menu");
+    }
+
+    const navbar = document.getElementById('navbar');
+    $(window).on("load resize scroll",function(e){
+        if ($(document).scrollTop() > 100) {
+            navbar.classList.add('scrolled');
+        }
+        else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
+{% endminify %}

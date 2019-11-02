@@ -24,7 +24,6 @@ gulp.task('js', function() {
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/wow.js/dist/wow.min.js',
         'node_modules/popper.js/dist/umd/popper.min.js',
-        'node_modules/slick-carousel/slick/slick.min.js',
         'templates/*.js',
         'templates/*/*.js',
         'templates/*/*/*.js'
