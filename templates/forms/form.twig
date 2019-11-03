@@ -39,7 +39,7 @@ novalidate>
     {% hook 'sproutForms.modifyForm' %}
 
     <div class="submit">
-        <button class="btn btn-primary btn-block" type="submit">{{ form.submitButtonText is not empty ? form.submitButtonText : 'Submit'|t('site') }}</button>
+        <button class="btn btn-primary btn-block" type="submit" onclick="displayLoader()">{{ form.submitButtonText is not empty ? form.submitButtonText : 'Submit'|t('site') }}</button>
     </div>
 </form>
 

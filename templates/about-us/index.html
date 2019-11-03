@@ -2,12 +2,15 @@
 
 {% set requestedSlug = craft.app.request.getSegment(2) %}
 {% set services = craft.entries().section('services').all() %}
+{% set reviews = craft.entries().section('reviews').all() %}
 
 {% block content %}
 
 <main>
 
-    {% include 'partials/navbar/index.html' %}
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
 
     <section class="py-2">
         <div class="container">
@@ -27,65 +30,18 @@
     </section>
 
     <section class="services bg-light py-5">
-        <div class="container text-center mb-5">
-            <div class="row justify-content-center mb-2">
-                <div class="col-12 col-md-8">
-                    <h2>Services</h2>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nulla nostrum perspiciatis nisi sequi consequuntur voluptate aliquid recusandae doloremque provident eveniet earum enim, officia, ut mollitia totam hic fugit voluptas?
-                    </p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                {% for service in services %}
-                    {% set heroBackground = service.heroBackground.one() %}
-                    <div class="col-12 col-md-4">
-                        <h3><a href="{{ service.url }}">{{service.title}}</a></h3>
-                        <div class="card text-white">
-                            <div class="overlay"></div>
-                            <a href="{{ service.url }}">
-                                <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
-                                <div class="card-img-overlay"></div>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>  
+        {% include 'partials/services/index.html' with {
+            services: services
+        } %} 
         <div class="container">
             <hr>
         </div>
-        <div class="container text-center mt-5">
-            <div class="row justify-content-center mb-2">
-                <div class="col-12 col-md-8">
-                    <h3>What our clients say</h3>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                {% set reviews = craft.entries()
-                    .section('reviews')
-                    .all() %}
-                {% for review in reviews %}
-                    <div class="col-12 col-md-4">
-                        {% set service = review.service.one() %}
-                        <h3 class="text-warning">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </h3>
-                        <p>{{review.review}}</p>
-                        <p class="muted mb-1">{{review.reviewAuthor}}</p>
-                        <a href="{{ service.url }}">{{service.title}}</a>
-                    </div>
-                {% endfor %}
-            </div>
-
-        </div>
+        {% include 'partials/reviews/index.html' with {
+            reviews: reviews
+        } %}
     </section>
 
-    <section class="py-5">
+    <section class="py-0 py-md-5 cta">
         {% include 'partials/cta/index.html' %}
     </section>
 

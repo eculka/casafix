@@ -4,7 +4,11 @@
     position: relative;
 
     .bg-dark {
-        background-color: rgba(#3142ab, .85) !important;
+        background-color: rgba(#3142ab, .7) !important;
+
+        @include media-breakpoint-down(md) {
+            background-color: rgba(#3142ab, 1) !important;
+        }
     }
 
     img {

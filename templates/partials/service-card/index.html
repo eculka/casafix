@@ -1,0 +1,34 @@
+{% set heroBackground = service.heroBackground.one() %}
+{% set hourlyRates = service.hourlyRate.all() %}
+
+<div class="card mb-2 border-0">
+    <div class="row no-gutters">
+        <div class="col-6">
+            <a href="{{service.url}}">
+                <img src="{{heroBackground.getUrl('smallThumbnail')}}" class="card-img-left" alt="{{heroBackground.title}}">
+            </a>
+        </div>
+        <div class="col-6 d-flex align-items-center">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{service.url}}">{{service.title}}</a></h5>
+                <p class="card-text">
+                    {% set lowestPrice = 999 %}
+                    {% for block in hourlyRates %}
+                        {% if block.type == "rate" %}
+                            {% if block.price is defined %}
+                                {% if lowestPrice > block.price %}
+                                    {% set lowestPrice = block.price %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if lowestPrice == 999 %}
+                        per quote
+                    {% else %}
+                        starting at <strong>£{{lowestPrice}}/h</strong>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

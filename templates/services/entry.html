@@ -4,17 +4,21 @@
 {% set entry = craft.entries().slug(requestedSlug|literal).one() %}
 {% set heroBackground = entry.heroBackground.one() %}
 {% set accreditations = craft.entries().section('accreditations').all() %}
+{% set services = craft.entries().section('services').all() %}
 
 {% block content %}
 
 {% if craft.app.request.getSegment(3)|length > 0 %}
     {% set postcode = craft.app.request.getSegment(3) %}
     <input type="hidden" id="postcode" value="{{postcode}}">
+    <input type="hidden" id="baseUrl" value="{{siteUrl}}">
 {% endif %}
 
 <main>
 
-    {% include 'partials/navbar/index.html' %}
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
 
     <section class="py-2">
         <div class="container">
@@ -88,16 +92,24 @@
         const defaultArea = 'London';
         let lat = '0';
         let lon = '0';
-        let mapUrlBase = 'https://maps.googleapis.com/maps/api/staticmap?center=London,UK&zoom=9&scale=2&size=640x200&maptype=roadmap&key=AIzaSyDq_al7-m5pkeAWG8O2rRczEJFi6wzOHm0&markers=size:mid%7Ccolor:0x28a745%7C';
+        let baseUrl = document.getElementById("baseUrl") ? document.getElementById("baseUrl").value : '';
+        let mapUrl = baseUrl + 'assets/img/staticmap.png';
+        let mapUrlBase = 'https://maps.googleapis.com/maps/api/staticmap?'+
+                         'center=London,UK'+
+                         '&zoom=10&scale=2&size=640x300&maptype=roadmap'+
+                         '&key=AIzaSyDq_al7-m5pkeAWG8O2rRczEJFi6wzOHm0'+
+                         '&markers=size:mid%7Ccolor:0xED533B%7C';
         let area = '';
         let postcode = document.getElementById("postcode") ? document.getElementById("postcode").value : '';
 
-        getAreaByPostcode(postcode)
+        if (postcode != ''){
+            getAreaByPostcode(postcode)
             .then(data => {
                 if (data.result.nhs_ha == 'London') {
                     area = data.result.admin_district;
                     lat = data.result.latitude;
                     lon = data.result.longitude;
+                    mapUrl = mapUrlBase + lat + ',' + lon;
                     console.log(data.result);
                     setTimeout(() => {
                         doContinue();
@@ -115,10 +127,11 @@
                     doContinue();
                 }, 0);
             });
+        }
 
         function doContinue(){
             document.getElementById("area1") ? document.getElementById("area1").innerHTML = area : '';
-            document.getElementById("map").src = mapUrlBase + lat + ',' + lon;
+            document.getElementById("map") ? document.getElementById("map").src = mapUrl : '';
         }
 
         return false;

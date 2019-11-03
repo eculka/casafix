@@ -7,7 +7,9 @@
 
 <main>
 
-    {% include 'partials/navbar/index.html' %}
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
 
     <section class="py-2">
         <div class="container">
@@ -49,7 +51,7 @@
         </div>
     </section>    
 
-    <section class="py-5">
+    <section class="py-0 py-md-5 cta">
         {% include 'partials/cta/index.html' %}
     </section>
 
@@ -71,11 +73,11 @@
             infinite: false,
             responsive: [
                 {
-                breakpoint: 768,
+                breakpoint: 1440,
                 settings: {
                     centerPadding: '30px',
                     initialSlide: 1,
-                    slidesToShow: 3
+                    slidesToShow: 2
                     
                 }
                 },

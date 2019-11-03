@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
-{% set page = entry %}
+{% set services = craft.entries().section('services').all() %}
 
 {% block content %}
 
 <main>
 
-    {% include 'partials/navbar/index.html' %}
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
 
     <section class="booking-form bg-light py-5">
         {% include 'partials/booking-form/index.html' %}

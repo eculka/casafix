@@ -1,39 +1,34 @@
-<section class="why-casafix py-5 bg-light">
-    <div class="container mb-5">
-        <h3 class="text-center mb-4">
-            Why Casafix plumbers?
-        </h3>
-        <div class="row text-center">
-            {% set whys = craft.entries()
-                .section('whys')
-                .all() %}
 
-            {% for why in whys %}
-                <div class="col-12 col-md-6 col-xl-3">
-                    {% set iconUrl = siteUrl~'assets/img/icon.png' %}
-                    <img class="icon mb-2" src="{{iconUrl}}" alt="">
-                    <p class="font-weight-bold mb-2 lead">{{why.title}}</p>
-                    <p class="small">{{why.whyParagraph}}</p>
+<div class="container mb-5">
+    <h3 class="text-center mb-4">
+        Why Casafix plumbers?
+    </h3>
+    <div class="row text-center">        
+        {% for why in whys %}
+            <div class="col-12 col-md-6 col-xl-3">
+                {% set iconUrl = siteUrl~'assets/img/icon.png' %}
+                <img class="icon mb-2" src="{{iconUrl}}" alt="">
+                <p class="font-weight-bold mb-2 lead">{{why.title}}</p>
+                <p class="small">{{why.whyParagraph}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container mb-3">
+    <h4 class="text-center mb-3">
+        Our Accreditations
+    </h4>
+    <div class="card bg-light px-3 border-0">
+        {% set accreditations = craft.entries()
+            .section('accreditations')
+            .all() %}
+        <div class="row align-items-center">
+            {% for accreditation in accreditations %}
+                <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
+                    {% set accreditaionLogo = accreditation.image.one() %}
+                    <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
                 </div>
             {% endfor %}
         </div>
     </div>
-    <div class="container mb-3">
-        <h4 class="text-center mb-3">
-            Our Accreditations
-        </h4>
-        <div class="card bg-white px-3 border-0">
-            {% set accreditations = craft.entries()
-                .section('accreditations')
-                .all() %}
-            <div class="row align-items-center">
-                {% for accreditation in accreditations %}
-                    <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
-                        {% set accreditaionLogo = accreditation.image.one() %}
-                        <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</section>
+</div>

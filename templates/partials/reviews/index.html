@@ -1,0 +1,57 @@
+<div class="container text-center mt-5">
+    <div class="row justify-content-center mb-2">
+        <div class="col-12 col-md-8">
+            <h3>What our clients say</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center review-slider">
+        {% for review in reviews %}
+            <div class="mx-1 mx-md-2">
+                {% set service = review.service.one() %}
+                <h3 class="text-warning">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </h3>
+                <p>{{review.review}}</p>
+                <p class="muted mb-1">{{review.reviewAuthor}}</p>
+                <a href="{{ service.url }}">{{service.title}}</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% minify js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js"></script>
+<script>
+    (function () {
+        $('.review-slider').slick({
+            arrows: false,
+            dots: true,
+            centerMode: true,
+            slidesToShow: 3,
+            centerPadding: '60px',
+            adaptiveHeight: true,
+            focusOnSelect: true,
+            responsive: [
+                {
+                breakpoint: 768,
+                settings: {
+                    centerPadding: '30px',
+                    slidesToShow: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    centerPadding: '30px',
+                    slidesToShow: 1
+                }
+                }
+            ]
+        });
+    })();
+</script>
+{% endminify %}

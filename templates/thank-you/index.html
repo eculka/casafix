@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
+{% set services = craft.entries().section('services').all() %}
 
 {% block content %}
 
 <main>
 
-    {% include 'partials/navbar/index.html' %}
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
 
     <section class="py-5">
         <div class="container">

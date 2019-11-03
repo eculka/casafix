@@ -2,11 +2,15 @@
 
 {% set heroBackground = entry.heroBackground.one() %}
 {% set services = craft.entries().section('services').all() %}
+{% set reviews = craft.entries().section('reviews').all() %}
+{% set whys = craft.entries().section('whys').all() %}
 
 {% block content %}
 <main>
 
-    {% include 'partials/navbar/index.html' %}
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
 
     {% include 'partials/hero/index.html' with {
             heroBackground: heroBackground,
@@ -16,103 +20,28 @@
 
     {% include 'partials/request-quote/index.html' %}
 
-    {% include 'partials/whys/index.html' %}
+    <section class="why-casafix pb-5 pt-5 pt-md-0">
+        {% include 'partials/whys/index.html' with {
+            whys: whys
+        } %}
+    </section>
 
-    <section class="services py-5">
-        <div class="container text-center mb-4">
-            <div class="row justify-content-center mb-4">
-                <div class="col-12 col-md-8">
-                    <h2>Services</h2>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nulla nostrum perspiciatis nisi sequi consequuntur voluptate aliquid recusandae doloremque provident eveniet earum enim, officia, ut mollitia totam hic fugit voluptas?
-                    </p>
-                </div>
-            </div>
-            <div class="row justify-content-center align-items-end">
-                {% for service in services %}
-                    {% set heroBackground = service.heroBackground.one() %}
-                    <div class="col-12 col-md-4 mb-4">
-                        <h3><a href="{{ service.url }}">{{service.title}}</a></h3>
-                        <div class="card text-white border-0">
-                            <div class="overlay"></div>
-                            <a href="{{ service.url }}">
-                                <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
-                                <div class="card-img-overlay"></div>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>  
+    <section class="services bg-light py-5">
+        {% include 'partials/services/index.html' with {
+            services: services
+        } %}  
         <div class="container">
             <hr>
         </div>
-        <div class="container text-center mt-5">
-            <div class="row justify-content-center mb-2">
-                <div class="col-12 col-md-8">
-                    <h3>What our clients say</h3>
-                </div>
-            </div>
-            <div class="row justify-content-center review-slider">
-                {% set reviews = craft.entries()
-                    .section('reviews')
-                    .all() %}
-                {% for review in reviews %}
-                    <div class="mx-1 mx-md-2">
-                        {% set service = review.service.one() %}
-                        <h3 class="text-warning">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </h3>
-                        <p>{{review.review}}</p>
-                        <p class="muted mb-1">{{review.reviewAuthor}}</p>
-                        <a href="{{ service.url }}">{{service.title}}</a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+        {% include 'partials/reviews/index.html' with {
+            reviews: reviews
+        } %}
     </section>
 
-    <section class="bg-light py-0 py-md-5 cta">
+    <section class="py-0 py-md-5 cta">
         {% include 'partials/cta/index.html' %}
     </section>
 
 </main>
-
-{% minify js %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js"></script>
-<script>
-    (function () {
-        $('.review-slider').slick({
-            arrows: false,
-            dots: true,
-            centerMode: true,
-            slidesToShow: 3,
-            centerPadding: '60px',
-            adaptiveHeight: true,
-            focusOnSelect: true,
-            responsive: [
-                {
-                breakpoint: 768,
-                settings: {
-                    centerPadding: '30px',
-                    slidesToShow: 3
-                }
-                },
-                {
-                breakpoint: 480,
-                settings: {
-                    centerPadding: '30px',
-                    slidesToShow: 1
-                }
-                }
-            ]
-        });
-    })();
-</script>
-{% endminify %}
 
 {% endblock %}
