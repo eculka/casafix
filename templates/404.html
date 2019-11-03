@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% set services = craft.entries().section('services').all() %}
+
+{% block content %}
+
+<main>
+
+    {% include 'partials/navbar/index.html' with {
+        services: services
+    } %}
+
+    <section class="py-2">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white pl-0">
+                    <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="entry">{{ entry.title }}</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="pt-3 pb-3">
+        <div class="container">
+            {% include 'partials/content/index.html' %}
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}
