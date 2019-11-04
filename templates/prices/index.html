@@ -13,12 +13,19 @@
 
     <section class="py-2">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-white pl-0">
-                    <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="entry">{{ entry.title }}</li>
-                </ol>
-            </nav>
+            {% include 'partials/breadcrumbs/index.html' with {
+                    breadcrumbs: [
+                        {
+                            name: 'Home',
+                            url: siteUrl
+                        },
+                        {
+                            name: entry.title,
+                            url: entry.url
+                        }
+                    ]
+                }
+            %}
         </div>
     </section>
 

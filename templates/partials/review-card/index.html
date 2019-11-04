@@ -1,0 +1,15 @@
+{% set service = review.service.one() %}
+<div class="mx-1 mx-md-2">
+    <div class="d-flex justify-content-center align-items-center">
+        <h3 class="mb-0 text-warning">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </h3>
+    </div>
+    <p>{{ review.review }}</p>
+    <p class="muted mb-1">{{review.reviewAuthor}}</p>
+    <a href="{{ service.url }}">{{service.title}}</a>
+</div>

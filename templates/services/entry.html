@@ -22,12 +22,30 @@
 
     <section class="py-2">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-white pl-0">
-                    <li class="breadcrumb-item"><a href="{{ siteUrl }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="entry">{{ entry.title }}</li>
-                </ol>
-            </nav>
+            {% set breadcrumbs = [
+                    {
+                        name: 'Home',
+                        url: siteUrl
+                    },
+                    {
+                        name: entry.title,
+                        url: entry.url
+                    }
+                ]
+            %}
+            {% if postcode is defined %}
+                {% set breadcrumbs = breadcrumbs|merge([
+                        {
+                            name: postcode,
+                            url: siteUrl
+                        }
+                    ])
+                %}
+            {% endif %}
+            {% include 'partials/breadcrumbs/index.html' with {
+                    breadcrumbs: breadcrumbs
+                }
+            %}
         </div>
     </section>
 

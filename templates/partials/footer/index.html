@@ -6,16 +6,28 @@
                     <p class="font-weight-bold text-white lead">
                         Contacts
                     </p>
-                    <span><a href="tel:+44{{contactInformation.phone}}" class="text-white"><i class="fa fa-phone mr-1"></i>{{contactInformation.phone}}</a></span>
-                    <span><a href="mailto:{{contactInformation.emailAddress}}" class="text-white"><i class="fa fa-envelope mr-1"></i>{{contactInformation.emailAddress}}</a></span>
-                    <ul class="navbar-nav address mt-2">
-                        <li class="font-weight-bold">{{contactInformation.companyName}}</li>
-                        <li>{{contactInformation.address1stLine}}</li>
+                    <span><a href="tel:+44{{contactInformation.phone}}" class="text-white"><i class="fa fa-phone mr-1"></i><span itemprop="telephone">{{contactInformation.phone}}</span></a></span>
+                    <span><a href="mailto:{{contactInformation.emailAddress}}" class="text-white"><i class="fa fa-envelope mr-1"></i><span itemprop="email">{{contactInformation.emailAddress}}</span></a></span>
+                    <ul itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="navbar-nav address mt-2">
+                        <li itemprop="name" class="font-weight-bold">{{contactInformation.companyName}}</li>
+                        <li itemprop="streetAddress">{{contactInformation.address1stLine}}</li>
                         <li>{{contactInformation.address2ndLine}}</li>
-                        <li>{{contactInformation.city}}</li>
+                        <li itemprop="addressLocality">{{contactInformation.city}}</li>
                         <li>{{contactInformation.country}}</li>
-                        <li>{{contactInformation.postCode}}</li>
+                        <li itemprop="postalCode">{{contactInformation.postCode}}</li>
                     </ul>
+                    <p class="mb-0 mt-2"><time itemprop="openingHours" datetime="Mo-Su">(Open Monday through Sunday, all day)</time></p>
+                    <span itemprop="areaServed" itemscope itemtype="https://schema.org/GeoCircle" class="invisible">
+                        <span itemprop="name">Service area</span>
+                        <span itemprop="geoMidpoint" itemscope itemtype="https://schema.org/GeoCoordinates">
+                            <span itemprop="postalCode">EC1A</span>
+                            <span itemprop="latitude">51.520269</span>
+                            <span itemprop="longitude">-0.103846</span>
+                            <span itemprop="description">Service across London</span>
+                            <span itemprop="name">London</span>
+                        </span>
+                        <span itemprop="geoRadius">30000</span>
+                    </span>
                 </div>
                 <div class="col-12 d-block d-md-none">
                     <hr>

@@ -1,0 +1,6 @@
+{% set seoTitle = entry.seoTitle ? entry.seoTitle ~ ' - ' ~ siteName : globalSeo.seoTitle %}
+{% set seoDescription = entry.seoDescription ? entry.seoDescription : globalSeo.seoDescription %}
+{% set seoKeywords = entry.seoKeywords ? entry.seoKeywords : globalSeo.seoKeywords.all() %}
+<title>{{ seoTitle }}</title>
+<meta name="description" content="{{ seoDescription }}"/>
+<meta name="keywords" content="{% for seoKeyword in seoKeywords.all() %}{{ seoKeyword.title }}{{ loop.revindex0 ? ', '  }}{% endfor %}"/>

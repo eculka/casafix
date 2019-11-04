@@ -3,7 +3,9 @@
     <head>
         <link rel="stylesheet" href="{{ siteUrl }}assets/css/style.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+        {% include 'partials/seo/index.html' %}
+
         <link rel="shortcut icon" type="image/png" href="{{ siteUrl }}favicon.png"/>
         <script
                 src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -11,7 +13,7 @@
                 crossorigin="anonymous"></script>
     </head>
 
-    <body>
+    <body itemscope itemtype="http://schema.org/LocalBusiness">
 
         {% block content %}{% endblock %}
 

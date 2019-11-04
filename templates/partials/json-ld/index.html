@@ -1,0 +1,22 @@
+<script type='application/ld+json'>
+    {
+        "@context": "http://www.schema.org",
+        "@type": "Plumber",
+        "name": "{{ siteName }}",
+        "url": "{{ siteUrl }}",
+        "logo": "{{ siteUrl }}assets/img/logo.png",
+        "priceRange": "$$$$",
+        "image": "{{ siteUrl }}assets/img/_hero/Boiler-2.jpg",
+        "description": "{{ globalSeo.seoDescription }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ contactInformation.address1stLine }}",
+            "addressLocality": "{{ contactInformation.city }}",
+            "addressRegion": "{{ contactInformation.address2ndLine }}",
+            "postalCode": "{{ contactInformation.postCode }}",
+            "addressCountry": "{{ contactInformation.country }}"
+        },
+        "openingHours": "Mo-Su",
+        "telephone": "{{ contactInformation.phone }}"
+    }
+</script>
