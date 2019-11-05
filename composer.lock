@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0159e9e12077f9b1681e76169fe52e8f",
+    "content-hash": "633a2c6edd2a1c4e350d870ca7c2a531",
     "packages": [
         {
             "name": "barrelstrength/sprout-base",
@@ -294,6 +294,52 @@
                 "sprout lists"
             ],
             "time": "2019-09-04T08:34:46+00:00"
+        },
+        {
+            "name": "bolden/htmlcache",
+            "version": "1.0.15",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/boldenamsterdam/htmlcache/zipball/ff0df86609f71f4782164a04bc2f9aa5efb2c115",
+                "reference": "ff0df86609f71f4782164a04bc2f9aa5efb2c115",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "HTML Cache",
+                "handle": "html-cache",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "class": "bolden\\htmlcache\\HtmlCache"
+            },
+            "autoload": {
+                "psr-4": {
+                    "bolden\\htmlcache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bolden B.V.",
+                    "homepage": "https://www.bolden.nl"
+                }
+            ],
+            "description": "Cache pages to HTML and boost website performance on Craft CMS 3.",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craft-plugin",
+                "craftcms",
+                "html cache"
+            ],
+            "time": "2019-07-09T11:45:47+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -3991,11 +4037,6 @@
         {
             "name": "voku/anti-xss",
             "version": "4.1.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/voku/anti-xss.git",
-                "reference": "a87bdbfad5211e6f35232d1af691dbf1eab0ac47"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/voku/anti-xss/zipball/a87bdbfad5211e6f35232d1af691dbf1eab0ac47",

@@ -1,4 +1,4 @@
-dateModified: 1572822278
+dateModified: 1572990485
 email:
   fromEmail: edgar.culka@yahoo.co.uk
   fromName: Casafix
@@ -832,6 +832,18 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.1.0
+  html-cache:
+    settings:
+      enableGeneral: '1'
+      forceOn: ''
+      optimizeContent: '1'
+      cacheDuration: '3600'
+      purgeCache: ''
+      excludedUrlPaths:
+        -
+          - /book/
+          - '-1'
+    enabled: true
 routes:
   a1eb4535-e87e-476d-9b94-67f2fe7f25ca:
     template: /services/entry
