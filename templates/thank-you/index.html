@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+
 {% set services = craft.entries().section('services').all() %}
 
 {% block content %}
@@ -9,13 +10,27 @@
         services: services
     } %}
 
-    <section class="py-5">
+    <section class="py-2">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8">
-                    {{ entry.generalContent }}
-                </div>
-            </div>
+            {% include 'partials/breadcrumbs/index.html' with {
+                    breadcrumbs: [
+                        {
+                            name: 'Home',
+                            url: siteUrl
+                        },
+                        {
+                            name: entry.title,
+                            url: entry.url
+                        }
+                    ]
+                }
+            %}
+        </div>
+    </section>
+
+    <section class="pt-3 pb-3">
+        <div class="container bg-white shadow py-4 fade-in-up">
+            {% include 'partials/content/index.html' %}
         </div>
     </section>
 

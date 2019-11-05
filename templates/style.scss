@@ -15,10 +15,6 @@
 @import "partials/loader-bar/style.scss";
 @import "partials/breadcrumbs/style.scss";
 
-html {
-    overflow-x: hidden;
-}
-
 .fade-in-up{
     transform-style: preserve-3d;
     transform-origin: top;
@@ -131,10 +127,6 @@ a{
 
 .slick-slide {
     outline: none !important;
-}
-
-.slick-list {
-    overflow: visible;
 }
 
 .slick-dots li button:before {

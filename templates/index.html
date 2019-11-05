@@ -8,51 +8,48 @@
 {% block content %}
 <main>
 
-    {% cache %}
+    
         {% include 'partials/navbar/index.html' with {
             services: services
         } %}
-    {% endcache %}
+    
 
-    {% cache %}
+    
         {% include 'partials/hero/index.html' with {
                 heroBackground: heroBackground,
                 heroTitle: entry.heroTitle
             } 
         %}
-    {% endcache %}
+    
 
-    {% cache %}
+    
         {% include 'partials/request-quote/index.html' %}
-    {% endcache %}
+    
 
-    {% cache %}
+    
         <section class="why-casafix pb-5 pt-5 pt-md-0">
             {% include 'partials/whys/index.html' with {
                 whys: whys
             } %}
         </section>
-    {% endcache %}
+    
 
-    {% cache %}
-        <section class="services bg-light py-5">
-            {% include 'partials/services/index.html' with {
-                services: services
-            } %}  
-            <div class="container">
-                <hr>
-            </div>
-            {% include 'partials/reviews/index.html' with {
-                reviews: reviews
-            } %}
-        </section>
-    {% endcache %}
+    
+    <section class="services bg-light py-5">
+        {% include 'partials/services/index.html' with {
+            services: services
+        } %}  
+        <div class="container">
+            <hr>
+        </div>
+        {% include 'partials/reviews/index.html' with {
+            reviews: reviews
+        } %}
+    </section>
 
-    {% cache %}
-        <section class="py-0 py-md-5 cta">
-            {% include 'partials/cta/index.html' %}
-        </section>
-    {% endcache %}
+    <section class="py-0 py-md-5 cta">
+        {% include 'partials/cta/index.html' %}
+    </section>
 
 </main>
 
