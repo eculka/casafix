@@ -1,6 +1,6 @@
 {% set heroBackground = service.heroBackground.one() %}
 {% set hourlyRates = service.hourlyRate.all() %}
-<div class="card text-center">
+<div class="card text-center shadow fade-in-up">
     <div class="card-header py-2">
         <p class="font-weight-bold lead mb-1" href="{{service.url}}">{{service.title}} - Pricing</p>
         {% if hourlyRates|length > 0 %}

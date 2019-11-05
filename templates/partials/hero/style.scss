@@ -3,11 +3,28 @@
 .hero{
     position: relative;
 
-    .bg-dark {
-        background-color: rgba(#3142ab, .7) !important;
+    @include media-breakpoint-down(sm) {
+        background: #ffd65a;
+    }
 
-        @include media-breakpoint-down(md) {
-            background-color: rgba(#3142ab, 1) !important;
+    .container {
+
+        @include media-breakpoint-down(sm) {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+
+            .col-12, .row{
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .card-img, .card {
+                border: transparent !important;
+                border-radius: 0 !important;
+            }
         }
     }
 
@@ -17,13 +34,15 @@
 
     .hero-text{
         position: absolute;
-        bottom: 0;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
 
         @include media-breakpoint-down(md) {
             position: relative;
+            top: 100%;
             width: 100%;
+            transform: translate(-50%, 0);
             max-width: 100%;
         }
     }

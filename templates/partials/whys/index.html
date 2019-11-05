@@ -5,7 +5,7 @@
     </h3>
     <div class="row text-center">        
         {% for why in whys %}
-            <div class="col-12 col-md-6 col-xl-3">
+            <div class="col-12 col-md-6 col-xl-3 fade-in">
                 {% set iconUrl = siteUrl~'assets/img/icon.png' %}
                 <img class="icon mb-2" src="{{iconUrl}}" alt="">
                 <p class="font-weight-bold mb-2 lead">{{why.title}}</p>
@@ -14,11 +14,11 @@
         {% endfor %}
     </div>
 </div>
-<div class="container mb-3">
+<div class="container">
     <h4 class="text-center mb-3">
         Our Accreditations
     </h4>
-    <div class="card bg-light px-3 border-0">
+    <div class="card px-3 border-0">
         {% set accreditations = craft.entries()
             .section('accreditations')
             .all() %}
@@ -26,7 +26,7 @@
             {% for accreditation in accreditations %}
                 <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
                     {% set accreditaionLogo = accreditation.image.one() %}
-                    <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
+                    <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
                 </div>
             {% endfor %}
         </div>

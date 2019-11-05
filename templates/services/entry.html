@@ -52,7 +52,7 @@
     <section class="pt-3 pb-3">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-8 mb-2">
+                <div class="col-12 col-md-7 col-lg-8 mb-2">
                     {% if postcode is defined %}
                         <div class="d-flex mb-2">
                             <h1><i class="fa fa-check text-success mr-1"></i></h1>
@@ -61,12 +61,12 @@
                                 <p>We’re ready to help with whatever you need. We can answer your questions, give helpful advice and schedule an engineer to visit you.</p>  
                             </div>
                         </div>
-                        <div class="card bg-light text-white mb-5 border-0">
+                        <div class="card bg-light text-white mb-5 border-0 shadow">
                             <img id="map" class="card-img">
                         </div>
                     {% else %}
                         <h1>{{entry.heroTitle}}</h1>
-                        <div class="card bg-light text-white mb-5 border-0">
+                        <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
                             <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
                         </div>
                     {% endif %}
@@ -75,18 +75,18 @@
                             {% include 'partials/content/index.html' %}
                         </div>
                     </div>
-                    <div class="card bg-light px-3 border-0">
+                    <div class="card px-3 border-0">
                         <div class="row align-items-center">
                             {% for accreditation in accreditations %}
                                 <div class="col-3 px-2 py-2 px-md-3 px-xl-4">
                                     {% set accreditaionLogo = accreditation.image.one() %}
-                                    <img src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
+                                    <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
-                <div class="col align-self-start">
+                <div class="col-12 col-md-5 col-lg-4 align-self-start">
                     {% include 'partials/price-card/index.html' with {
                         service: entry,
                         hideButtons: false,

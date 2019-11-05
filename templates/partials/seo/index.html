@@ -1,6 +1,9 @@
+
 {% set seoTitle = entry.seoTitle ? entry.seoTitle ~ ' - ' ~ siteName : globalSeo.seoTitle %}
 {% set seoDescription = entry.seoDescription ? entry.seoDescription : globalSeo.seoDescription %}
 {% set seoKeywords = entry.seoKeywords ? entry.seoKeywords : globalSeo.seoKeywords.all() %}
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>{{ seoTitle }}</title>
 <meta name="description" content="{{ seoDescription }}"/>
-<meta name="keywords" content="{% for seoKeyword in seoKeywords.all() %}{{ seoKeyword.title }}{{ loop.revindex0 ? ', '  }}{% endfor %}"/>
+<meta name="keywords" content="{% for seoKeyword in seoKeywords %}{{ seoKeyword.title }}{{ loop.revindex0 ? ', '  }}{% endfor %}"/>
