@@ -17,26 +17,30 @@
 
         {% block content %}{% endblock %}
 
-        {% include 'partials/footer/index.html' %}
+        {% cache %}
+            {% include 'partials/footer/index.html' %}
+        {% endcache %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
         <script src="{{ siteUrl }}assets/js/functions.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 
-        {% minify js %}
-        <script>
-            $('a').click(function (e) {
-                if (this.href && !this.href.includes("tel:") && !this.href.includes("mailto:")){
-                    displayLoader();
+        {% cache %}
+            {% minify js %}
+            <script>
+                $('a').click(function (e) {
+                    if (this.href && !this.href.includes("tel:") && !this.href.includes("mailto:")){
+                        displayLoader();
+                    }
+                });
+                function displayLoader(){
+                    document.getElementById("PreLoaderBar").style.display = "block";
+                    setTimeout(() => {
+                        document.getElementById("PreLoaderBar").style.display = "none";
+                    }, 10000);
                 }
-            });
-            function displayLoader(){
-                document.getElementById("PreLoaderBar").style.display = "block";
-                setTimeout(() => {
-                    document.getElementById("PreLoaderBar").style.display = "none";
-                }, 10000);
-            }
-        </script>
-        {% endminify %}
+            </script>
+            {% endminify %}
+        {% endcache %}
 
     </body>
 
