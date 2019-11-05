@@ -31,7 +31,7 @@
                 </ul>
                 <a class="btn btn-warning text-white d-block d-md-none ml-auto phone" href="tel:+44{{ contactInformation.phone }}"><i class="fa fa-phone mr-1 border-rounded"></i></a>
                 {% if 'book' != craft.app.request.getSegment(1) %}
-                    <a href="{{ siteUrl }}book" class="btn d-block btn-primary ml-2 text-center">Book</a>
+                    <a href="{{ siteUrl }}book" class="btn d-block btn-primary ml-2 text-center shadow">Book</a>
                 {% endif %}
             </div>
             <span class="burger-menu d-block d-lg-none ml-2" onclick="toggleMobileMenu()">
@@ -54,7 +54,6 @@
         <li class="nav-item text-center">
             <a class="nav-link text-white" href="{{ siteUrl }}prices">Prices</a>
         </li>
-        <hr>
         {% for service in services %}
             <li class="nav-item text-center">
                 <a class="nav-link text-white" href="{{ service.url }}">{{ service.title }}</a>

@@ -92,17 +92,6 @@ nav.mobile-menu {
         .container {
             position: relative;
             padding-bottom: 1rem;
-
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0;
-                height: .1rem;
-                background: rgba(#fff, .2);
-                width: 100%;
-                left: 0;
-            }
         }
     }
 

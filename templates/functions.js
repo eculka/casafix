@@ -1,7 +1,7 @@
 (function(){
 
     initialAnimation('fade-in-up', 300, 100, 1000);
-    initialAnimation('fade-in', 300, 100, 2000);
+    initialAnimation('fade-in', 150, 100, 1000);
 
     // Scroll animation function
     document.addEventListener('scroll', scroll, true);
@@ -51,7 +51,7 @@
         var bounding = el.getBoundingClientRect();
         return (
             bounding.top >= 0 &&
-            bounding.top + 200 <= (window.innerHeight || document.documentElement.clientHeight)
+            bounding.top + 100 <= (window.innerHeight || document.documentElement.clientHeight)
         );
     };
 
