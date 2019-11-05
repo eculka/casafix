@@ -54,18 +54,18 @@
             <div class="row">
                 <div class="col-12 col-md-7 col-lg-8 mb-2">
                     {% if postcode is defined %}
-                        <div class="d-flex mb-2">
-                            <h1><i class="fa fa-check text-success mr-1"></i></h1>
+                        <div class="d-flex mb-2 p-3 card shadow bg-success text-white fade-in-up">
+                            <h1><i class="fa fa-check mr-1"></i></h1>
                             <div>
                                 <h1>{{entry.title}} in <span id="area1">London</span> is Available</h1>
                                 <p>We’re ready to help with whatever you need. We can answer your questions, give helpful advice and schedule an engineer to visit you.</p>  
+                                <a href="{{ siteUrl }}book" class="btn btn-primary float-md-left">Request service</a>
                             </div>
                         </div>
                         <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
                             <img id="map" class="card-img">
                         </div>
                     {% else %}
-                        <h1>{{entry.heroTitle}}</h1>
                         <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
                             <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
                         </div>
@@ -97,7 +97,15 @@
         </div>
     </section>
 
-    <section class="bg-light py-0 py-md-5 cta">
+    <section class="services bg-light pt-5 pb-3">
+        <h2 class="text-center mb-4">Other Services</h2>
+        {% include 'partials/services/index.html' with {
+            services: services,
+            entry: entry
+        } %}
+    </section>
+
+    <section class="py-0 py-md-5 cta">
         {% include 'partials/cta/index.html' %}
     </section>
 

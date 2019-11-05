@@ -35,7 +35,7 @@ html {
 
 main {
     background: url(../../assets/img/background.svg) top left no-repeat;
-    background-size: 95%;
+    background-size: 100%;
 
     @include media-breakpoint-down(sm) {
         background: none !important;

@@ -3,28 +3,23 @@
     <head>
         <link rel="stylesheet" href="{{ siteUrl }}assets/css/style.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
         {% include 'partials/seo/index.html' %}
-
         <link rel="shortcut icon" type="image/png" href="{{ siteUrl }}favicon.png"/>
         <script
                 src="https://code.jquery.com/jquery-3.4.1.min.js"
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
                 crossorigin="anonymous"></script>
     </head>
-
     <body itemscope itemtype="http://schema.org/LocalBusiness">
 
         {% block content %}{% endblock %}
-
         {% cache %}
             {% include 'partials/footer/index.html' %}
         {% endcache %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-        <script src="{{ siteUrl }}assets/js/functions.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
-
         {% cache %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+            <script src="{{ siteUrl }}assets/js/functions.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
             {% minify js %}
             <script>
                 $('a').click(function (e) {
@@ -41,7 +36,5 @@
             </script>
             {% endminify %}
         {% endcache %}
-
     </body>
-
 </html>
