@@ -15,12 +15,6 @@
 @import "partials/loader-bar/style.scss";
 @import "partials/breadcrumbs/style.scss";
 
-.fade-in-up{
-    transform-style: preserve-3d;
-    transform-origin: top;
-    visibility: hidden;
-}
-
 .shadow {
     box-shadow: 0 -2px 46px rgba(171, 49, 139, 0.25);
 
@@ -30,7 +24,7 @@
 }
 
 main {
-    background: url(../../assets/img/background.svg) top left no-repeat;
+    background: url(../../assets/img/background.svg) top 4rem left no-repeat;
     background-size: 100%;
 
     @include media-breakpoint-down(sm) {

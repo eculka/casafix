@@ -63,24 +63,24 @@
                             </div>
                         </div>
                         <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
-                            <img id="map" class="card-img">
+                            <img id="map" class="card-img" alt="Service available map" title="Service available map">
                         </div>
                     {% else %}
                         <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
-                            <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}">
+                            <img src="{{heroBackground.getUrl('thumbnail')}}" class="card-img" alt="{{heroBackground.title}}" title="{{heroBackground.title}}">
                         </div>
                     {% endif %}
                     <div class="row">
                         <div class="col-12 mb-2">
                             {% include 'partials/content/index.html' %}
-                        </div>
+                        </div>                        
                     </div>
                     <div class="card px-3 border-0">
                         <div class="row align-items-center">
                             {% for accreditation in accreditations %}
                                 <div class="col-3 px-2 py-2 px-md-3 px-xl-4">
                                     {% set accreditaionLogo = accreditation.image.one() %}
-                                    <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}">
+                                    <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}" title="{{accreditaionLogo.title}}">
                                 </div>
                             {% endfor %}
                         </div>
@@ -131,20 +131,36 @@
         if (postcode != ''){
             getAreaByPostcode(postcode)
             .then(data => {
-                if (data.result.nhs_ha == 'London') {
-                    area = data.result.admin_district;
-                    lat = data.result.latitude;
-                    lon = data.result.longitude;
-                    mapUrl = mapUrlBase + lat + ',' + lon;
-                    console.log(data.result);
-                    setTimeout(() => {
-                        doContinue();
-                    }, 0);
-                } else {
-                    area = defaultArea;
-                    setTimeout(() => {
-                        doContinue();
-                    }, 0);
+                if (Array.isArray(data.result)){
+                    if (data.result[0].nhs_ha == 'London') {
+                        area = data.result[0].admin_district;
+                        lat = data.result[0].latitude;
+                        lon = data.result[0].longitude;
+                        mapUrl = mapUrlBase + lat + ',' + lon;
+                        setTimeout(() => {
+                            doContinue();
+                        }, 0);
+                    } else {
+                        area = defaultArea;
+                        setTimeout(() => {
+                            doContinue();
+                        }, 0);
+                    }
+                }else{
+                    if (data.result.nhs_ha == 'London') {
+                        area = data.result.admin_district;
+                        lat = data.result.latitude;
+                        lon = data.result.longitude;
+                        mapUrl = mapUrlBase + lat + ',' + lon;
+                        setTimeout(() => {
+                            doContinue();
+                        }, 0);
+                    } else {
+                        area = defaultArea;
+                        setTimeout(() => {
+                            doContinue();
+                        }, 0);
+                    }
                 }
             })
             .catch(error => {
@@ -164,7 +180,7 @@
 
         function getAreaByPostcode(postcode) {
             
-            const url = 'http://api.postcodes.io/postcodes/' + postcode;
+            const url = 'http://api.postcodes.io/postcodes?q=' + postcode;
 
             return new Promise((resolve, reject) => {
                 $.ajax({

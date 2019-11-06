@@ -23,6 +23,9 @@
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
 
+        <!-- HubSpot Embed Code -->
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6682263.js"></script>
+
         <link rel="stylesheet" href="{{ siteUrl }}assets/css/style.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         {% include 'partials/seo/index.html' %}
@@ -38,6 +41,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
         <script src="{{ siteUrl }}assets/js/functions.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dc33efe3fec7d4e"></script>
+        
         {% minify js %}
         <script>
             $('a').click(function (e) {
