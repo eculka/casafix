@@ -5,12 +5,38 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150953138-1"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-150953138-1');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-150953138-1');
+            gtag('config', 'AW-696938295');
         </script>
 
+        <!-- Event snippet for succesfull Booking Request conversion page -->
+        {% if craft.app.request.getSegment(1) == 'thank-you' %}
+            <script>
+                gtag('event', 'conversion', {'send_to': 'AW-696938295/WaGSCMPJpLMBELfeqcwC'});
+            </script>
+        {% endif %}
+
+        <!-- Event snippet for Mobile Phone Number Clicks conversion page
+        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+        <script>
+            function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-696938295/Mh7eCNCHqLMBELfeqcwC',
+                'event_callback': callback
+            });
+            return false;
+            }
+        </script>
+        
+      
         <!-- Hotjar Tracking Code for casafix.co.uk -->
         <script>
             (function(h,o,t,j,a,r){
@@ -44,7 +70,7 @@
 
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dc33efe3fec7d4e"></script>
-        
+
         {% minify js %}
         <script>
             $('a').click(function (e) {
