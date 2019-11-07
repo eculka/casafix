@@ -6,6 +6,9 @@
 @import "../node_modules/slick-carousel/slick/slick.scss";
 @import "../node_modules/slick-carousel/slick/slick-theme.scss";
 
+@import "services/style.scss";
+@import "prices/style.scss";
+
 @import "partials/navbar/style.scss";
 @import "partials/hero/style.scss";
 @import "partials/whys/style.scss";
@@ -134,4 +137,8 @@ a{
 
 .slick-dots, .slick-next, .slick-prev {
     position: relative;
+}
+
+.request-quote{
+    margin-top: -3.5rem;
 }

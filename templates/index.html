@@ -8,25 +8,22 @@
 {% block content %}
 <main>
 
-    
         {% include 'partials/navbar/index.html' with {
             services: services
         } %}
     
-
+        <section class="hero pt-4">
+            {% include 'partials/hero/index.html' with {
+                    heroBackground: heroBackground,
+                    heroTitle: entry.heroTitle
+                } 
+            %}
+        </section>
     
-        {% include 'partials/hero/index.html' with {
-                heroBackground: heroBackground,
-                heroTitle: entry.heroTitle
-            } 
-        %}
-    
-
-    
-        {% include 'partials/request-quote/index.html' %}
-    
-
-    
+        <section class="request-quote pb-3 pt-3 pt-md-0 pb-md-5">
+            {% include 'partials/request-quote/index.html' %}
+        </section>
+        
         <section class="why-casafix pb-5 pt-5 pt-md-0">
             {% include 'partials/whys/index.html' with {
                 whys: whys

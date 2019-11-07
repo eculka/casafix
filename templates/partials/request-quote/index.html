@@ -1,45 +1,38 @@
-<section class="request-quote py-3 pt-md-0 pb-md-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 text-center">
-                <h2>Looking for an engineer right away?</h2>
-                <p class="text-small text-md-muted">24/7 service available</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card bg-warning p-0 p-md-3 border-0 shadow">
-                    <form id="request-quote" novalidate>
-                        <div class="form-row align-items-end">
-                            <input type="hidden" id="baseUrl" value="{{ siteUrl }}">
-                            <div class="form-group col-md-4">
-                                <label class="font-weight-bold" for="service">I need help with</label>
-                                <select class="form-control" id="service">
-                                    {% set services = craft.entries()
-                                        .section('services')
-                                        .all() %}
-                                    {% for service in services %}
-                                        <option value="{{service.title}}">{{service.title}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label class="font-weight-bold" for="postcode">Your postcode</label>
-                                <input type="text" class="form-control" id="postcode" placeholder="Postcode" required>
-                                <div class="invalid-feedback">
-                                    Enter your postcode
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <button class="btn btn-block btn-primary d-flex justify-content-center shadow" onclick="submitForm();displayLoader();">Find Engineer</button>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-11">
+            <div class="card bg-warning p-0 p-md-3 border-0 shadow fade-in-up">
+                <form id="request-quote" novalidate>
+                    <div class="form-row align-items-end">
+                        <input type="hidden" id="baseUrl" value="{{ siteUrl }}">
+                        <div class="form-group col-md-4">
+                            <label class="font-weight-bold" for="service">I need help with</label>
+                            <select class="form-control" id="service">
+                                {% set services = craft.entries()
+                                    .section('services')
+                                    .all() %}
+                                {% for service in services %}
+                                    <option value="{{service.title}}">{{service.title}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="font-weight-bold" for="postcode">Your postcode</label>
+                            <input type="text" class="form-control" id="postcode" placeholder="Postcode" required>
+                            <div class="invalid-feedback">
+                                Enter your postcode
                             </div>
                         </div>
-                    </form>
-                </div>
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-block btn-primary d-flex justify-content-center shadow" onclick="submitForm();displayLoader();">Find Engineer</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 {% minify js %}
 <script>

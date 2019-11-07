@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-12 col-md-7 col-lg-8 mb-2">
                     {% if postcode is defined %}
-                        <div class="d-flex mb-2 p-3 card shadow border-0 fade-in-up">
+                        <div class="d-flex mb-2 p-3 card shadow fade-in-up">
                             <h1><i class="fa fa-check text-success mr-1"></i></h1>
                             <div>
                                 <h1>{{entry.title}} in <span id="area1">London</span> is Available</h1>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
-                            <img id="map" class="card-img" alt="Service available map" title="Service available map">
+                            <img id="map" class="card-img" alt="Service available map" src="{{ siteUrl }}assets/img/services-available-in-london.png" title="Service available map">
                         </div>
                     {% else %}
                         <div class="card bg-light text-white mb-5 border-0 shadow fade-in-up">
@@ -74,24 +74,26 @@
                         <div class="col-12 mb-2">
                             {% include 'partials/content/index.html' %}
                         </div>                        
-                    </div>
-                    <div class="card px-3 border-0">
-                        <div class="row align-items-center">
-                            {% for accreditation in accreditations %}
-                                <div class="col-3 px-2 py-2 px-md-3 px-xl-4">
-                                    {% set accreditaionLogo = accreditation.image.one() %}
-                                    <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}" title="{{accreditaionLogo.title}}">
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
-                <div class="col-12 col-md-5 col-lg-4 align-self-start">
+                <div class="col-12 col-md-5 col-lg-4 align-self-start price-card-wrapper">
                     {% include 'partials/price-card/index.html' with {
                         service: entry,
                         hideButtons: false,
                         hideImage: true
                     } %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="card px-3 mt-3 border-0">
+                    <div class="row align-items-center">
+                        {% for accreditation in accreditations %}
+                            <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
+                                {% set accreditaionLogo = accreditation.image.one() %}
+                                <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}" title="{{accreditaionLogo.title}}">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,7 +121,7 @@
         let lat = '0';
         let lon = '0';
         let baseUrl = document.getElementById("baseUrl") ? document.getElementById("baseUrl").value : '';
-        let mapUrl = baseUrl + 'assets/img/staticmap.png';
+        let mapUrl = baseUrl + 'assets/img/services-available-in-london.png';
         let mapUrlBase = 'https://maps.googleapis.com/maps/api/staticmap?'+
                          'center=London,UK'+
                          '&zoom=10&scale=2&size=640x300&maptype=roadmap'+
