@@ -27,7 +27,7 @@
 }
 
 main {
-    background: url(../../assets/img/background.svg) top 4rem left no-repeat;
+    background: url(../../assets/img/background.svg) top 10rem left no-repeat;
     background-size: 100%;
 
     @include media-breakpoint-down(sm) {
@@ -141,4 +141,8 @@ a{
 
 .request-quote{
     margin-top: -3.5rem;
+
+    @include media-breakpoint-down(sm) {
+        margin-top: 0;
+    }
 }
