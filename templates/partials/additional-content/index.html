@@ -1,0 +1,13 @@
+{% if page is defined%}
+    {% set entry = page %}
+{% endif %}
+
+{% set rows = entry.additionalContent.all() %}
+
+{% for row in rows %}
+    <div class="row">
+        <div class="col-12">
+            {{row.additionalContent}}
+        </div>
+    </div>
+{% endfor %}
