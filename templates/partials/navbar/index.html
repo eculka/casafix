@@ -26,7 +26,7 @@
 
                 <ul class="navbar-nav ml-auto d-none d-md-flex">
                     <li class="nav-item">
-                        <a class="nav-link lead" href="tel:+44{{ contactInformation.phone }}"> <i class="fa fa-phone mr-1 border-rounded"></i><span class="d-none d-md-inline-block">{{ contactInformation.phone }} <span class="text-lowercase">(free)</span></span></a>
+                        <a class="nav-link lead" onclick="return gtag_report_conversion('tel:+44{{ contactInformation.phone}}');" href="tel:+44{{ contactInformation.phone}}"> <i class="fa fa-phone mr-1 border-rounded"></i><span class="d-none d-md-inline-block">{{ contactInformation.phone }} <span class="text-lowercase">(free)</span></span></a>
                     </li>
                 </ul>
                 <a class="btn btn-warning text-white d-block d-md-none ml-auto phone" href="tel:+44{{ contactInformation.phone }}"><i class="fa fa-phone mr-1 border-rounded"></i></a>

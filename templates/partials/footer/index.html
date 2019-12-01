@@ -6,7 +6,7 @@
                     <p class="font-weight-bold text-white lead">
                         Contacts
                     </p>
-                    <span><a href="tel:+44{{contactInformation.phone}}" class="text-white"><i class="fa fa-phone mr-1"></i><span itemprop="telephone">{{contactInformation.phone}}</span></a></span>
+                    <span><a onclick="return gtag_report_conversion('tel:+44{{ contactInformation.phone}}');" href="tel:+44{{contactInformation.phone}}" class="text-white"><i class="fa fa-phone mr-1"></i><span itemprop="telephone">{{contactInformation.phone}}</span></a></span>
                     <span><a href="mailto:{{contactInformation.emailAddress}}" class="text-white"><i class="fa fa-envelope mr-1"></i><span itemprop="email">{{contactInformation.emailAddress}}</span></a></span>
                     <ul itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="navbar-nav address mt-2">
                         <li itemprop="name" class="font-weight-bold">{{contactInformation.companyName}}</li>
