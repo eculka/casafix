@@ -29,7 +29,7 @@
                         <a class="nav-link lead" onclick="return gtag_report_conversion('tel:+44{{ contactInformation.phone}}');" href="tel:+44{{ contactInformation.phone}}"> <i class="fa fa-phone mr-1 border-rounded"></i><span class="d-none d-md-inline-block">{{ contactInformation.phone }} <span class="text-lowercase">(free)</span></span></a>
                     </li>
                 </ul>
-                <a class="btn btn-warning text-white d-block d-md-none ml-auto phone" href="tel:+44{{ contactInformation.phone }}"><i class="fa fa-phone mr-1 border-rounded"></i></a>
+                <a class="btn btn-warning text-white d-block d-md-none ml-auto phone" onclick="return gtag_report_conversion('tel:+44{{ contactInformation.phone}}');" href="tel:+44{{ contactInformation.phone }}"><i class="fa fa-phone mr-1 border-rounded"></i></a>
                 {% if 'book' != craft.app.request.getSegment(1) %}
                     <a href="{{ siteUrl }}book" class="btn d-block btn-primary ml-2 text-center shadow">Book</a>
                 {% endif %}
