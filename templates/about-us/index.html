@@ -36,15 +36,15 @@
         </div>
     </section>
 
-    <section class="services py-5">
-        {% include 'partials/services/index.html' with {
-            services: services
-        } %} 
-        <div class="container">
-            <hr>
-        </div>
+    <section class="services py-5"> 
         {% include 'partials/reviews/index.html' with {
             reviews: reviews
+        } %}
+        <div class="container mb-4">
+            <hr>
+        </div>
+        {% include 'partials/services/index.html' with {
+            services: services
         } %}
     </section>
 

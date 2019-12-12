@@ -39,9 +39,25 @@
         <div class="container">
             <hr>
         </div>
-        {% include 'partials/reviews/index.html' with {
-            reviews: reviews
-        } %}
+
+        <div class="container">
+            <h4 class="text-center mb-3">
+                Our Accreditations
+            </h4>
+            <div class="card px-3 border-0 bg-light">
+                {% set accreditations = craft.entries()
+                    .section('accreditations')
+                    .all() %}
+                <div class="row align-items-center">
+                    {% for accreditation in accreditations %}
+                        <div class="col-3 px-2 py-2 px-sm-3 px-md-4 px-xl-5">
+                            {% set accreditaionLogo = accreditation.image.one() %}
+                            <img class="fade-in" src="{{accreditaionLogo.getUrl('logo')}}" alt="{{accreditaionLogo.title}}" title="{{accreditaionLogo.title}}">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="py-0 py-md-5 cta">
