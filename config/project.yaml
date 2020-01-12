@@ -1,17 +1,10 @@
-dateModified: 1573075198
+dateModified: 1578856644
 email:
-  fromEmail: edgar.culka@yahoo.co.uk
+  fromEmail: info@casafix.co.uk
   fromName: Casafix
   template: null
-  transportType: craft\mail\transportadapters\Smtp
-  transportSettings:
-    host: smtp.mail.yahoo.com
-    port: '465'
-    useAuthentication: '1'
-    username: edgar.culka
-    password: ewaB1967
-    encryptionMethod: ssl
-    timeout: '10'
+  transportType: craft\mail\transportadapters\Sendmail
+  transportSettings: null
 fieldGroups:
   25c512aa-c1dc-4d21-b142-780626be9580:
     name: 'About Us'
@@ -333,6 +326,38 @@ fields:
       columnType: text
     fieldGroup: 390b2ddb-714c-43a4-93f3-6b69e7544979
     contentColumnType: text
+  a2ed4923-86e9-4af7-831d-dbcb2b8b24f4:
+    name: 'Company Number'
+    handle: companyNumber
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    fieldGroup: 72172d5c-3d2b-4ac2-8db3-68ecce137ab4
+    contentColumnType: text
+  a6ba642c-6cad-41e2-8881-517b3758dc37:
+    name: 'Additional Content'
+    handle: additionalContent
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_additionalcontent}}'
+      propagationMethod: all
+    fieldGroup: 390b2ddb-714c-43a4-93f3-6b69e7544979
+    contentColumnType: string
   a778d648-2bd6-4209-abd2-a79b125ad85b:
     name: 'SEO Image'
     handle: seoImage
@@ -509,22 +534,25 @@ globalSets:
             fields:
               4332767c-a894-4e73-bc79-db62533ea0cf:
                 required: false
-                sortOrder: 7
+                sortOrder: 8
               5a81d84f-9353-46e9-a5cc-d23fd8b9fca2:
                 required: false
                 sortOrder: 1
               5efac3ac-451e-47c6-8dc8-dc4fbb357702:
                 required: false
-                sortOrder: 8
-              b9db58ae-6d19-4b84-9004-8236b371bb61:
+                sortOrder: 9
+              a2ed4923-86e9-4af7-831d-dbcb2b8b24f4:
                 required: false
                 sortOrder: 4
-              bcdbadef-d7c7-4e03-8449-450157049ba9:
-                required: false
-                sortOrder: 6
-              d30256df-c9ff-4109-b7b3-32a2a76f3c3b:
+              b9db58ae-6d19-4b84-9004-8236b371bb61:
                 required: false
                 sortOrder: 5
+              bcdbadef-d7c7-4e03-8449-450157049ba9:
+                required: false
+                sortOrder: 7
+              d30256df-c9ff-4109-b7b3-32a2a76f3c3b:
+                required: false
+                sortOrder: 6
               e18988a2-d326-4365-a159-eb3717288534:
                 required: false
                 sortOrder: 2
@@ -626,7 +654,7 @@ matrixBlockTypes:
           removeInlineStyles: '1'
           removeEmptyTags: '1'
           removeNbsp: '1'
-          purifyHtml: '1'
+          purifyHtml: ''
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
@@ -767,7 +795,7 @@ matrixBlockTypes:
           removeInlineStyles: '1'
           removeEmptyTags: '1'
           removeNbsp: '1'
-          purifyHtml: '1'
+          purifyHtml: ''
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
@@ -776,6 +804,43 @@ matrixBlockTypes:
       4eb58cca-9e4f-452b-9a8a-98102c902be0:
         name: 'Editor Right'
         handle: editorRight
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: ''
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: ''
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        fieldGroup: null
+        contentColumnType: text
+  cdd2e185-1a0c-4065-bb2c-4f7d9bde3e54:
+    name: Row
+    handle: row
+    sortOrder: 1
+    field: a6ba642c-6cad-41e2-8881-517b3758dc37
+    fieldLayouts:
+      202f80f5-8b66-46c2-8bf7-42bf5367c379:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              ff0c4d97-c57d-4ddc-94d3-aafe6d57bc28:
+                required: false
+                sortOrder: 1
+    fields:
+      ff0c4d97-c57d-4ddc-94d3-aafe6d57bc28:
+        name: 'Additional Content'
+        handle: additionalContent
         instructions: ''
         searchable: true
         translationMethod: none
@@ -812,7 +877,7 @@ plugins:
           honeypotScreenReaderMessage: 'Leave this field blank'
       enableEditFormEntryViaFrontEnd: '1'
     enabled: true
-    schemaVersion: 3.5.0
+    schemaVersion: 3.6.0
   sprout-lists:
     edition: standard
     enabled: true
@@ -832,11 +897,37 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.1.0
+    settings:
+      sitemapName: sitemap
+      sitemapLimit: '1000'
+      titleSuffix: null
+      title:
+        -
+          key: '1'
+          locked: '0'
+          template: '{title}'
+        -
+          key: '2'
+          locked: '1'
+          template: ' - {{ siteName }}'
+      description: ''
+      socialImage: ''
+      metaTemplate: ''
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\n\nUser-agent: *\nDisallow: /terms-and-conditions\nDisallow: /privacy-policy\nDisallow: /cookie-policy\n\n{# Disallows #}\n{% if craft.app.config.env != 'production' %}\n\n{# Disallow access to everything when NOT in production #}\nUser-agent: *\nDisallow: /\n\n{% else %}\n\n{# Disallow access to cpresources/ when live #}\nUser-agent: *\nDisallow: /cpresources/\n\n{% endif %}"
+      facebookAppId: ''
+      twitterHandle: ''
   html-cache:
     settings:
-      enableGeneral: '1'
+      enableGeneral: ''
       forceOn: ''
-      optimizeContent: '1'
+      optimizeContent: ''
       cacheDuration: '3600'
       purgeCache: ''
       excludedUrlPaths:
@@ -844,6 +935,7 @@ plugins:
           - /book/
           - '-1'
     enabled: true
+    schemaVersion: 1.0.0
   mailchimp-lists:
     edition: standard
     enabled: true
@@ -1767,6 +1859,8 @@ plugins:
         -
           value: vi
           label: Vietnamese
+  nocache:
+    schemaVersion: 1.0.0
 routes:
   a1eb4535-e87e-476d-9b94-67f2fe7f25ca:
     template: /services/entry
@@ -2034,6 +2128,36 @@ sections:
         hasUrls: true
         uriFormat: book
         template: book/
+  9c6d5ae1-8c35-4ed4-8ed7-1ad9e6ed2fe8:
+    name: 'Cookie Policy'
+    handle: cookiePolicy
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    entryTypes:
+      f342b1d7-204c-4f32-9731-4a9e334f9880:
+        name: 'Cookie Policy'
+        handle: cookiePolicy
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          3bf3d42f-46af-4a07-8f0c-d0537d446d5c:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  61ca6dbd-d222-4603-8d42-72335bc60d73:
+                    required: false
+                    sortOrder: 1
+    siteSettings:
+      b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: cookie-policy
+        template: cookie-policy/
   c066645c-74bf-489f-bf46-bb3b984dc74b:
     name: CTA
     handle: cta
@@ -2091,6 +2215,9 @@ sections:
                   61ca6dbd-d222-4603-8d42-72335bc60d73:
                     required: false
                     sortOrder: 1
+                  a6ba642c-6cad-41e2-8881-517b3758dc37:
+                    required: false
+                    sortOrder: 2
               -
                 name: SEO
                 sortOrder: 2
@@ -2276,12 +2403,9 @@ sections:
                 name: Common
                 sortOrder: 1
                 fields:
-                  76fcc8c0-5174-4cb9-8820-68de06912ea7:
+                  61ca6dbd-d222-4603-8d42-72335bc60d73:
                     required: false
-                    sortOrder: 3
-                  978d3a34-04ed-465a-b253-458aa014901d:
-                    required: false
-                    sortOrder: 4
+                    sortOrder: 1
     siteSettings:
       b7e8c2fc-4fa3-47fd-ab20-d9d669fb8c41:
         enabledByDefault: true

@@ -16,7 +16,7 @@ gulp.task('sass', function() {
         .pipe(sass())
         .pipe(minifycss())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest("web/assets/css"));
+        .pipe(gulp.dest("public_html/assets/css"));
 });
 
 gulp.task('js', function() {
@@ -36,7 +36,7 @@ gulp.task('js', function() {
     .pipe(sourcemaps.write())
     .pipe(concat('functions.js'))
     .pipe(minifyjs())
-    .pipe(gulp.dest("web/assets/js"));
+    .pipe(gulp.dest("public_html/assets/js"));
 });
 
 gulp.task('serve', ['sass'], function() {
