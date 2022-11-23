@@ -12,7 +12,7 @@
     "animejs": "^3.1.0",
     "babel": "^6.23.0",
     "bootstrap": "^4.3.1",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "es6-promise": "^4.2.8",
     "gulp": "3.9.1",
     "gulp-concat": "^2.6.1",
